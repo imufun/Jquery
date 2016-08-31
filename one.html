@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<meta name="viewport" content="width=device-width, initial-scale=1"> 
+					<title>Bootstrap 101 Template</title>
+
+<style>
+
+	.horizontal {  float: left;  list-style: none;  margin: 10px; }
+	.sub-level {  background: #ccc; } 
+	a {  color: #00c; } a.mailto {  background: url(placeholder.png) no-repeat right top;  padding-right: 18px; } a.pdflink {  background: url(placeholder.png) no-repeat right top;  padding-right: 18px; } a.henrylink {  background-color: #fff;  padding: 2px;  border: 1px solid #000; } 
+</style>
+				</head>
+				<body> 
+
+					<ul id="selected-plays">
+						<li>Comedies 
+							<ul>
+								<li>
+									<a href="/asyoulikeit/">As You Like It</a>
+								</li>
+								<li>All's Well That Ends Well</li>
+								<li>A Midsummer Night's Dream</li>
+								<li>Twelfth Night</li>
+							</ul>
+						</li>
+						<li>Tragedies
+							<ul>
+								<li>
+									<a href="hamlet.pdf">Hamlet</a>
+								</li>
+								<li>Macbeth</li>
+								<li>Romeo and Juliet</li>
+							</ul>
+						</li>
+						<li>Histories 
+							<ul>
+								<li>Henry IV (<a href="mailto:henryiv@king.co.uk">email</a>)
+									<ul>
+										<li>Part I</li>
+										<li>Part II</li>  
+									</ul>
+									<li>
+										<a href="http://www.shakespeare.co.uk/henryv.htm">Henry V</a>
+									</li>
+									<li>Richard II</li>
+									<p>f</p>
+								</ul>
+							</li>
+						</ul>
+
+
+						<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+						<script>
+					
+					$(document).ready(function() { 
+						$('#selected-plays > li').addClass('horizontal'); 
+						$('#selected-plays li:not(.horizontal)').addClass('sub-level'); //li 'horizontal' bad e shob jaygate sub-level class ta boshbe
+						//li:not('.horizontal').addClass('sub-level');
+						
+						//Attribute selectors ->Styling links 
+						$('a[href^="mailto"]').addClass('mailto');
+						$('a[href$=".placeholder"]').addClass('imgLink');
+						
+						//Custom selectors
+					}); 
+					</script>
+					</body>
+					
+					
+				</html>
