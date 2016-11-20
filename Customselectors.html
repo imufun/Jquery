@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap 101 Template</title>
+        <style>
+            .horizontal {  float: left;  list-style: none;  margin: 10px; }
+            .sub-level {  background: #ccc; } 
+            a {  color: #00c; } a.mailto {  background: url(placeholder.png) no-repeat right top;  padding-right: 18px; } a.pdflink {  background: url(placeholder.png) no-repeat right top;  padding-right: 18px; } a.henrylink {  background-color: #fff;  padding: 2px;  border: 1px solid #000; } 
+			tr {  background-color: #fff; } .alt {  background-color: #ccc; }
+        </style>
+    </head>
+    <body>
+        <h2>Shakespeare's Plays</h2>
+        <table>
+            <tr>
+                <td>As You Like It</td>
+                <td>Comedy</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>All's Well that Ends Well</td>
+                <td>Comedy</td>
+                <td>1601</td>
+            </tr>
+            <tr>
+                <td>Hamlet</td>
+                <td>Tragedy</td>
+                <td>1604</td>
+            </tr>
+            <tr>
+                <td>Macbeth</td>
+                <td>Tragedy</td>
+                <td>1606</td>
+            </tr>
+            <tr>
+                <td>Romeo and Juliet</td>
+                <td>Tragedy</td>
+                <td>1595</td>
+            </tr>
+            <tr>
+                <td>Henry IV, Part I</td>
+                <td>History</td>
+                <td>1596</td>
+            </tr>
+            <tr>
+                <td>Henry V</td>
+                <td>History</td>
+                <td>1599</td>
+            </tr>
+        </table>
+        <h2>Shakespeare's Sonnets</h2>
+        <table>
+        <tr>
+            <td>The Fair Youth</td>
+            <td>1–126</td>
+        </tr>
+        <tr>
+            <td>The Dark Lady</td>
+            <td>127–152</td>
+        </tr>
+        <tr>
+            <td>The Rival Poet</td>
+            <td>78–86</td>
+        </tr>
+        </table>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() { 
+            	$('#selected-plays > li').addClass('horizontal'); 
+            	$('#selected-plays li:not(.horizontal)').addClass('sub-level'); //li 'horizontal' bad e shob jaygate sub-level class ta boshbe
+            	//li:not('.horizontal').addClass('sub-level');
+            
+            	//Attribute selectors ->Styling links 
+            	$('a[href^="mailto"]').addClass('mailto');
+            	$('a[href$=".placeholder"]').addClass('imgLink');
+            
+            	//Custom selectors
+				
+				//$('tr:even').addClass('alt');
+				$('tr:nth-child(odd)').addClass('alt-child');
+				
+            }); 
+        </script>
+    </body>
+</html>
