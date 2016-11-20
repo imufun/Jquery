@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Jquery </title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="night.css" rel="stylesheet">
+    <link href="day.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="css/custom/day.css" >-->
+    <!--<link rel="stylesheet"  href="css/custom/night.css" >-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <h1>My Website</h1>
+            <button data-file="day">Day</button>
+            <button data-file="night">Night</button>
+        </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--<script src="js/bootstrap.min.js"></script>-->
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+    (function () {
+        var Link = $('link');
+        $('button').click(function () {
+            var $this = $(this);
+            var stylesheet = $(this).data('file'); // load css file
+            Link.attr('href', stylesheet + '.css'); // Load css file with global variable
+            $this.attr('disabled', 'disabled');
+            $this.siblings('button').removeAttr('disabled'); // toogle when one open & another off
+        });
+
+    })();
+
+
+</script>
+
+</body>
+</html>
