@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Jquery </title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="css/custom/day.css" >-->
+    <!--<link rel="stylesheet"  href="css/custom/night.css" >-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                software like Aldus PageMaker including versions of Lorem Ipsum. </p>
+
+            <div id="contact">
+                <form action="">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Recipient's username"
+                               aria-describedby="basic-addon2">
+                        <span class="input-group-addon" id="basic-addon2">@example.com</span>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <span class="input-group-addon">.00</span>
+                    </div>
+
+                    <label for="basic-url">Your vanity URL</label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon3">https://example.com/users/</span>
+                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--<script src="js/bootstrap.min.js"></script>-->
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+    (function () {
+
+        $('html').addClass('js');
+
+
+        //constructor create
+        //oop javaScript
+        var ContactForm = {
+            container: $('#contact'),
+            init: function () {
+
+                $('<button></button>', {
+                    text: 'Contact Me'
+                })
+                        .insertAfter('p')
+                        .on('click', this.show);
+            },
+            show: function () {
+                ContactForm.close.call(ContactForm.container);
+                ContactForm.container.show();
+            },
+            close: function () {
+                var $this = $(this);
+                $('<span class="close">X</span>')
+                        .prependTo(this)
+                        .on('click', function () {
+                            $this.hide();
+                        })
+
+            }
+        };
+
+        ContactForm.init();
+
+    })();
+
+
+</script>
+
+</body>
+</html>
