@@ -73,12 +73,16 @@
 
         $('html').addClass('js');
 
-
         //constructor create
         //oop javaScript
         var ContactForm = {
             container: $('#contact'),
-            init: function () {
+
+            config: {
+                effect: 'slideToggle'
+            },
+            init: function (config) {
+                $.extend(this.config, config);
 
                 $('<button></button>', {
                     text: 'Contact Me'
@@ -87,11 +91,21 @@
                         .on('click', this.show);
             },
             show: function () {
-                ContactForm.close.call(ContactForm.container);
-                ContactForm.container.show();
+
+                var cf = ContactForm,
+                        container = cf.container,
+                        config = cf.config;
+                if (container.is(':hidden')) {
+                    ContactForm.close.call(container);
+                    ContactForm.container[config.effect](500);
+                }
+                // workable
+                //ContactForm.close.call(ContactForm.container);
+                //ContactForm.container[ContactForm.config.effect](500);
             },
             close: function () {
                 var $this = $(this);
+                if ($this.find('span.close').length) return;
                 $('<span class="close">X</span>')
                         .prependTo(this)
                         .on('click', function () {
@@ -101,7 +115,10 @@
             }
         };
 
-        ContactForm.init();
+        ContactForm.init({
+            effect: 'fadeToggle',
+            speed: 200
+        });
 
     })();
 
