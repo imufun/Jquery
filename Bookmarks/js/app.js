@@ -25,9 +25,23 @@ function savebookmark(e) {
     //fectch data from localStorage
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }
-
+  fetchBookmarks();
   e.preventDefault();
 }
+
+function deleteBookmarks(url){
+   var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+   for (var i = 0; i <bookmarks.length; i++) {
+     if(bookmarks[i].url == url){
+       bookmarks.splice(i, 1 );
+     }
+   }
+   //fetchBookmarks();
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  fetchBookmarks();
+}
+
+
 //
  function fetchBookmarks(){
    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
@@ -46,9 +60,7 @@ function savebookmark(e) {
                                 '</div>';
    }
 
-   function deleteBookmarks(url){
-     console.log(url);
-   }
+
 
 
 //   console.log(bookmarks);
