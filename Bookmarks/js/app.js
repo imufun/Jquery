@@ -9,8 +9,24 @@ function savebookmark(e) {
     name : siteName,
     url : siteUrl
   }
+
+  //localStorage.setItem("imran", "Programmer");
+
+
+  if (localStorage.getItem('Bookmark') === null) {
+    var bookmarks =[];
+    bookmarks.push(Bookmark);
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  }else {
+    
+    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    bookmarks.push(Bookmark);
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  }
+
+
   console.log(Bookmark);
-  
+
   console.log(siteName + "\n" + siteUrl);
 
   e.preventDefault();
