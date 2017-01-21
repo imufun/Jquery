@@ -4,6 +4,15 @@ var idd=document.getElementById('myForm').addEventListener('submit', savebookmar
 function savebookmark(e) {
   var siteName = document.getElementById('sitename').value;
   var siteUrl = document.getElementById('siteurl').value;
+  if (!siteName || !siteUrl) {
+    alert("Please Fill the all input field");
+  }
+
+  var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  var regex = new RegExp(expression);
+  if (!siteUrl.match(regex)) {
+    alert("Please input correct an Email");
+  }
 
   //bookmarks object
   var Bookmark = {
