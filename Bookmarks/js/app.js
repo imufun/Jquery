@@ -13,21 +13,19 @@ function savebookmark(e) {
   //localStorage.setItem("imran", "Programmer");
 
 
-  if (localStorage.getItem('Bookmark') === null) {
+  if (localStorage.getItem('bookmarks') === null) {
     var bookmarks =[];
     bookmarks.push(Bookmark);
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }else {
-    
     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
     bookmarks.push(Bookmark);
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }
 
+  //console.log(Bookmark);
 
-  console.log(Bookmark);
-
-  console.log(siteName + "\n" + siteUrl);
+  //console.log(siteName + "\n" + siteUrl);
 
   e.preventDefault();
 }
