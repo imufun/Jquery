@@ -1,5 +1,5 @@
 body{
 }
-
-#contact{position: relative}
-.js #contact{position: absolute;display: none}
+.navbar{position: relative}
+#navtopbar{display: none;position: absolute;top:51px;}
+.selected{background: #51a7e8}
