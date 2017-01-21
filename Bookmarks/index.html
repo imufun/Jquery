@@ -17,7 +17,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body onload="fetchBookmarks()">
 
     <div class="container">
         <div class="row">
@@ -36,7 +36,16 @@
                  <input type="submit" name="" value="Submit" class="btn btn-primary">
               </form>
             </div>
+
+              <div class="col-md-12">
+                   <h3 class="text-center">Bookmark</h3>
+                        <div id="BookMarskResult"></div>
+                   </div>
+              </div>
         </div>
+
+
+
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
