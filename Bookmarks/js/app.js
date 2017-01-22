@@ -4,16 +4,13 @@ var idd=document.getElementById('myForm').addEventListener('submit', savebookmar
 function savebookmark(e) {
   var siteName = document.getElementById('sitename').value;
   var siteUrl = document.getElementById('siteurl').value;
-  if (!siteName || !siteUrl) {
-    alert("Please Fill the all input field");
-  }
-
-  var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-  var regex = new RegExp(expression);
-  if (!siteUrl.match(regex)) {
-    alert("Please input correct an Email");
-  }
-
+  
+   
+	
+	if(!validationForm(siteName, siteUrl)){
+	
+	return false;
+	}
   //bookmarks object
   var Bookmark = {
     name : siteName,
@@ -21,22 +18,28 @@ function savebookmark(e) {
   }
 
   //localStorage.setItem("imran", "Programmer");
-
-  var bookmarks =[];
+ 
 
   if (localStorage.getItem('bookmarks') === null) {
+    var bookmarks =[];
     bookmarks.push(Bookmark);
     //save localStorage
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+ 	 site = loclStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+	 
   }else {
     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+	 
     bookmarks.push(Bookmark);
     //fectch data from localStorage
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }
+  
+  
   fetchBookmarks();
+  document.getElementById('myForm').reset();
   e.preventDefault();
 }
+
 
 function deleteBookmarks(url){
    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
@@ -68,9 +71,21 @@ function deleteBookmarks(url){
                                 '<a onclick="deleteBookmarks(\''+url+'\')" href="#" class="btn btn-info">Delete</a>'+
                                 '</div>';
    }
-
-
-
-
-//   console.log(bookmarks);
  }
+
+function validationForm(siteName, siteUrl){
+  if (!siteName || !siteUrl) {
+    alert("Please Fill the all input field");
+    return false;
+  }
+
+  var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  var regex = new RegExp(expression);
+
+  if (!siteUrl.match(regex)) {
+    alert("Please input correct an Email");
+    return false;
+  } 
+return true; 
+ 
+}
