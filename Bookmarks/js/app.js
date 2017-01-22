@@ -57,11 +57,13 @@ function deleteBookmarks(url){
      var name = bookmarks[i].name;
      var url = bookmarks[i].url;
 
-     bookmarksResult.innerHTML +='<div class="well">' +
-                                '<h3>' +name+ '</h3>' +
-                                '<a href="'+url+'" class="btn btn-info" target="_blank">Visit</a>'+
-                                '<a onclick="deleteBookmarks(\''+url+'\')" href="#" class="btn btn-info">Delete</a>'+
-                                '</div>';
+     bookmarksResult.innerHTML +='<div class="col-md-3">' +
+                                    '<div class="inner-contenr text-center">'+
+                                        '<h3>' +name+ '</h3>' +
+                                        '<a href="'+url+'" class="btn btn-info" target="_blank">Visit</a>'+
+                                        '<a onclick="deleteBookmarks(\''+url+'\')" href="#" class="btn btn-danger">Delete</a>'+
+                                    '</div>'+
+                                 '</div>';
    }
  }
 
@@ -79,7 +81,7 @@ function validationForm(siteName, siteUrl){
     return false;
   }
 
- 
+
 
 return true;
 
