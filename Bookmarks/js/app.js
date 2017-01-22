@@ -4,13 +4,11 @@ var idd=document.getElementById('myForm').addEventListener('submit', savebookmar
 function savebookmark(e) {
   var siteName = document.getElementById('sitename').value;
   var siteUrl = document.getElementById('siteurl').value;
-  
-   
-	
-	if(!validationForm(siteName, siteUrl)){
-	
-	return false;
-	}
+
+if(!validationForm(siteName, siteUrl)){
+
+return false;
+}
   //bookmarks object
   var Bookmark = {
     name : siteName,
@@ -18,28 +16,22 @@ function savebookmark(e) {
   }
 
   //localStorage.setItem("imran", "Programmer");
- 
+
+  var bookmarks =[];
 
   if (localStorage.getItem('bookmarks') === null) {
-    var bookmarks =[];
     bookmarks.push(Bookmark);
     //save localStorage
- 	 site = loclStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-	 
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }else {
     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
-	 
     bookmarks.push(Bookmark);
     //fectch data from localStorage
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }
-  
-  
   fetchBookmarks();
-  document.getElementById('myForm').reset();
   e.preventDefault();
 }
-
 
 function deleteBookmarks(url){
    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
@@ -85,7 +77,12 @@ function validationForm(siteName, siteUrl){
   if (!siteUrl.match(regex)) {
     alert("Please input correct an Email");
     return false;
-  } 
-return true; 
+  }
+
  
-}
+
+return true;
+
+
+//   console.log(bookmarks);
+ }
