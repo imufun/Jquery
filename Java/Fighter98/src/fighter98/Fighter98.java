@@ -11,7 +11,8 @@ import fighter98.Game.*;
 public class Fighter98 {
 
     public static void main(String[] args) {
-        new Game("Fighter98", 800, 600);
+       Game game =  new Game("Fighter98", 800, 600);
+       game.start();
     }
 
 }

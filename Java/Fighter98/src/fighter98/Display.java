@@ -48,5 +48,9 @@ public class Display {
         jFrame.add(canvas);
         jFrame.pack();
     }
+    
+    public Canvas getCanvas(){
+        return  canvas;
+    } 
 
 }
