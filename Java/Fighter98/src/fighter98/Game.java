@@ -1,5 +1,6 @@
 package fighter98;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
@@ -37,11 +38,17 @@ public class Game implements Runnable {
         }
         
         graphics = bs.getDrawGraphics();
-        
+        //Clear Screen 
+        graphics.clearRect(0, 0, width, height);
         
         //Draw here
+         
+       // graphics.fillRect(0, 0, width, height);
+        graphics.setColor(Color.red);
+        graphics.fillRect(10, 50, 50, 60); 
+        graphics.setColor(Color.green);
+        graphics.fillRect(0, 0, 10, 10);
         
-        graphics.fillRect(0, 0, width, height);
         bs.show();
         graphics.dispose();
         //end
