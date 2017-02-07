@@ -42,12 +42,8 @@ public class Game implements Runnable {
         graphics.clearRect(0, 0, width, height);
         
         //Draw here
-         
-       // graphics.fillRect(0, 0, width, height);
-        graphics.setColor(Color.red);
-        graphics.fillRect(10, 50, 50, 60); 
-        graphics.setColor(Color.green);
-        graphics.fillRect(0, 0, 10, 10);
+       
+        
         
         bs.show();
         graphics.dispose();
