@@ -5,6 +5,8 @@
  */
 package fighter98;
 
+import java.awt.Canvas;
+import java.awt.Dimension;
 import javax.swing.JFrame;
 
 public class Display {
@@ -16,6 +18,7 @@ public class Display {
     private String title;
 
     private JFrame jFrame;
+    private Canvas canvas;
 
     public Display() {
     }
@@ -24,7 +27,6 @@ public class Display {
         this.width = width;
         this.height = height;
         this.title = title;
-
         CreateDisplay();
     }
 
@@ -34,8 +36,17 @@ public class Display {
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setResizable(false);
         jFrame.setLocationRelativeTo(null);
-        jFrame.setVisible(true);
-
+        jFrame.setTitle(title);
+        jFrame.setVisible(true);   
+        
+        //canvas
+        canvas =new Canvas();
+        canvas.setPreferredSize(new Dimension(width,height));
+        canvas.setMaximumSize(new Dimension(width, height));
+        canvas.setMinimumSize(new Dimension(width, height));
+        
+        jFrame.add(canvas);
+        jFrame.pack();
     }
 
 }

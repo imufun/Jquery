@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package fighter98;
- 
+
 import fighter98.Display.*;
+import fighter98.Game.*;
+
 public class Fighter98 {
-    public static void main(String[] args) { 
-       // Display display = new  Display("title",300,300);
-        //new Display("Title", 600,600);
-        Display d = new  Display(800, 600, "Fighter98");
+
+    public static void main(String[] args) {
+        new Game("Fighter98", 800, 600);
     }
-    
+
 }
