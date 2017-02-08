@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 public class Game implements Runnable {
 
@@ -33,9 +34,12 @@ public class Game implements Runnable {
         display = new Display(width, height, title);         
         Assets.init();
     }
-
+ 
+    int x = 0;
+    
+    Random r = new Random();
     private void tick() {
-
+       x+= 1;
     }
 
     private void render() {        
@@ -50,11 +54,10 @@ public class Game implements Runnable {
         graphics.clearRect(0, 0, width, height);
         
         //Draw here  
-        graphics.drawImage(Assets.dirt, 100, 100,null);
-        graphics.drawImage(Assets.grass, 50, 70,null);
-        graphics.drawImage(Assets.tree, 10, 120,null);
-        graphics.drawImage(Assets.player, 140, 300,null);
-        graphics.drawImage(Assets.stone,220, 500,null);
+        graphics.drawImage(Assets.grass, x, 10,null); 
+        graphics.drawImage(Assets.tree, x, 120,null);
+        graphics.drawImage(Assets.player, x, 300,null);
+        graphics.drawImage(Assets.stone,x, 500,null);
         
         bs.show();
         graphics.dispose();
@@ -65,9 +68,33 @@ public class Game implements Runnable {
     @Override
     public void run() {
         init();
+        
+        // 
+        int fps = 60;      
+        double timePerTick = 1000000000 / fps;
+        double delta = 0;
+        long  now;
+        long lastTime = System.nanoTime();
+        
         while (ruuning) {
-            tick();
-            render();
+            
+            now = System.nanoTime();
+            delta += (now - lastTime) / timePerTick;
+            lastTime = now;
+            long timer = 0;
+            long ticks = 0;
+             
+            if (delta >= 1) {                
+                tick();
+                render();
+                ticks++;
+                delta--;
+            }    
+            if (timer >= 1000000000) {
+               System.out.println("Ticks and Frames: " + ticks);
+	       ticks = 0;
+	       timer = 0;
+            }
         }
         stop();
     }
