@@ -2,6 +2,7 @@ package fighter98;
 
 import fighter98.gfx.ImageLoader;
 import fighter98.display.Display;
+import fighter98.gfx.Assets;
 import fighter98.gfx.SpriteSheet;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -18,10 +19,8 @@ public class Game implements Runnable {
     private boolean ruuning = false;
     private BufferStrategy bs;
     private Graphics graphics;
-    
-    private BufferedImage imgsheet;
-    
-    private SpriteSheet sheet;
+
+    //load 
 
     public Game(String title, int width, int height) {
         this.title = title;
@@ -31,9 +30,8 @@ public class Game implements Runnable {
     }
 
     private void init() {
-        display = new Display(width, height, title); 
-        imgsheet = ImageLoader.LoadImage("/textures/sheet.png");
-        sheet = new SpriteSheet(imgsheet);
+        display = new Display(width, height, title);         
+        Assets.init();
     }
 
     private void tick() {
@@ -51,8 +49,13 @@ public class Game implements Runnable {
         //Clear Screen 
         graphics.clearRect(0, 0, width, height);
         
-        //Draw here 
-        graphics.drawImage(sheet.crop(0, 0, 32  , 32), 5, 5, null);
+        //Draw here  
+        graphics.drawImage(Assets.dirt, 100, 100,null);
+        graphics.drawImage(Assets.grass, 50, 70,null);
+        graphics.drawImage(Assets.tree, 10, 120,null);
+        graphics.drawImage(Assets.player, 140, 300,null);
+        graphics.drawImage(Assets.stone,220, 500,null);
+        
         bs.show();
         graphics.dispose();
         //end
