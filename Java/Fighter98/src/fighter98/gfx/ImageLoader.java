@@ -1,4 +1,4 @@
-package fighter98;
+package fighter98.gfx;
 
 import com.sun.media.jfxmedia.events.BufferListener;
 import java.awt.image.BufferedImage;
