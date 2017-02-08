@@ -9,6 +9,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.Random;
+import state.GameState;
+import state.State;
 
 public class Game implements Runnable {
 
@@ -23,6 +25,12 @@ public class Game implements Runnable {
 
     //load 
 
+    
+    //State
+    private State  Gamestate;
+    
+    
+    
     public Game(String title, int width, int height) {
         this.title = title;
         this.width = width;
@@ -33,13 +41,16 @@ public class Game implements Runnable {
     private void init() {
         display = new Display(width, height, title);         
         Assets.init();
+        
+        Gamestate = new GameState();
+        State.setState(Gamestate);
     }
  
-    int x = 0;
-    
-    Random r = new Random();
+ 
     private void tick() {
-       x+= 1;
+        if (State.getState()!=null) {
+            State.getState().tick();
+        }
     }
 
     private void render() {        
@@ -54,10 +65,9 @@ public class Game implements Runnable {
         graphics.clearRect(0, 0, width, height);
         
         //Draw here  
-        graphics.drawImage(Assets.grass, x, 10,null); 
-        graphics.drawImage(Assets.tree, x, 120,null);
-        graphics.drawImage(Assets.player, x, 300,null);
-        graphics.drawImage(Assets.stone,x, 500,null);
+         if (State.getState()!=null) {
+             State.getState().render(graphics);
+        }
         
         bs.show();
         graphics.dispose();
