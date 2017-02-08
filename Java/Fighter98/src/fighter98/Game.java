@@ -3,6 +3,7 @@ package fighter98;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 
 public class Game implements Runnable {
 
@@ -14,6 +15,9 @@ public class Game implements Runnable {
     private boolean ruuning = false;
     private BufferStrategy bs;
     private Graphics graphics;
+    
+    
+    private BufferedImage test;
 
     public Game(String title, int width, int height) {
         this.title = title;
@@ -24,6 +28,7 @@ public class Game implements Runnable {
 
     private void init() {
         display = new Display(width, height, title);
+        test = ImageLoader.LoadImage("/textures/bel.png");
     }
 
     private void tick() {
@@ -43,7 +48,7 @@ public class Game implements Runnable {
         
         //Draw here
        
-        
+        graphics.drawImage(test, 20, 20, null);
         
         bs.show();
         graphics.dispose();

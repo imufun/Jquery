@@ -6,6 +6,8 @@
             <name>Fighter98</name>
             <source-roots>
                 <root id="src.dir"/>
+                <root id="src.res.dir"/>
+                <root id="src.textures.dir"/>
             </source-roots>
             <test-roots>
                 <root id="test.src.dir"/>
