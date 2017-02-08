@@ -3,9 +3,9 @@ package state;
 import fighter98.gfx.Assets;
 import java.awt.Graphics;
 
-public class GameState extends State{
+public class MenuState extends State{
 
-    public GameState() {
+    public MenuState() {
     }     
 
     @Override
@@ -14,7 +14,8 @@ public class GameState extends State{
     }
 
     @Override
-    public void render(Graphics graphics) {
-                   
-    } 
+    public void render(Graphics graphics) { 
+        
+    }
+
 }

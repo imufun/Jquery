@@ -10,6 +10,7 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 import state.GameState;
+import state.MenuState;
 import state.State;
 
 public class Game implements Runnable {
@@ -28,6 +29,7 @@ public class Game implements Runnable {
     
     //State
     private State  Gamestate;
+    private State  menuState;
     
     
     
@@ -43,6 +45,7 @@ public class Game implements Runnable {
         Assets.init();
         
         Gamestate = new GameState();
+        menuState = new MenuState();
         State.setState(Gamestate);
     }
  
