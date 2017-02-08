@@ -5,7 +5,7 @@
  */
 package fighter98;
 
-import fighter98.Display.*;
+import fighter98.display.Display.*;
 import fighter98.Game.*;
 
 public class Fighter98 {

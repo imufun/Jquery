@@ -1,8 +1,17 @@
 package fighter98;
 
+import fighter98.gfx.ImageLoader;
+import fighter98.display.Display;
+import fighter98.gfx.Assets;
+import fighter98.gfx.SpriteSheet;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.util.Random;
+import state.GameState;
+import state.MenuState;
+import state.State;
 
 public class Game implements Runnable {
 
@@ -15,6 +24,15 @@ public class Game implements Runnable {
     private BufferStrategy bs;
     private Graphics graphics;
 
+    //load 
+
+    
+    //State
+    private State  Gamestate;
+    private State  menuState;
+    
+    
+    
     public Game(String title, int width, int height) {
         this.title = title;
         this.width = width;
@@ -23,11 +41,19 @@ public class Game implements Runnable {
     }
 
     private void init() {
-        display = new Display(width, height, title);
+        display = new Display(width, height, title);         
+        Assets.init();
+        
+        Gamestate = new GameState();
+        menuState = new MenuState();
+        State.setState(Gamestate);
     }
-
+ 
+ 
     private void tick() {
-
+        if (State.getState()!=null) {
+            State.getState().tick();
+        }
     }
 
     private void render() {        
@@ -41,9 +67,10 @@ public class Game implements Runnable {
         //Clear Screen 
         graphics.clearRect(0, 0, width, height);
         
-        //Draw here
-       
-        
+        //Draw here  
+         if (State.getState()!=null) {
+             State.getState().render(graphics);
+        }
         
         bs.show();
         graphics.dispose();
@@ -54,29 +81,49 @@ public class Game implements Runnable {
     @Override
     public void run() {
         init();
+        
+        // 
+        int fps = 60;      
+        double timePerTick = 1000000000 / fps;
+        double delta = 0;
+        long  now;
+        long lastTime = System.nanoTime();
+        
         while (ruuning) {
-            tick();
-            render();
+            
+            now = System.nanoTime();
+            delta += (now - lastTime) / timePerTick;
+            lastTime = now;
+            long timer = 0;
+            long ticks = 0;
+             
+            if (delta >= 1) {                
+                tick();
+                render();
+                ticks++;
+                delta--;
+            }    
+            if (timer >= 1000000000) {
+               System.out.println("Ticks and Frames: " + ticks);
+	       ticks = 0;
+	       timer = 0;
+            }
         }
         stop();
     }
 
     public synchronized void start() {
-        if (ruuning)    return;
-       
-
+        if (ruuning)    return; 
         ruuning = true;
         thread = new Thread(this);
         thread.start();
     }
 
     public synchronized void stop() {
-        if (!ruuning)  return;
-        
+        if (!ruuning)  return;        
         ruuning = false;
         try {
             thread.join();
-
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
