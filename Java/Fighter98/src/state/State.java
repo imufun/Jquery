@@ -1,6 +1,7 @@
  
 package state;
 
+import fighter98.Game;
 import java.awt.Graphics;
  
 public abstract class State {
@@ -15,6 +16,13 @@ public abstract class State {
         return currentState;
     }
        
+    protected Game game; 
+
+    public State(Game game) {
+        this.game= game;
+    }
+    
+    
     
     public abstract void tick();
     public abstract void render(Graphics graphics);

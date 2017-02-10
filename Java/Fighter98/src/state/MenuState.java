@@ -1,11 +1,13 @@
 package state;
 
+import fighter98.Game;
 import fighter98.gfx.Assets;
 import java.awt.Graphics;
 
 public class MenuState extends State{
 
-    public MenuState() {
+    public MenuState(Game game) {
+     super(game);
     }     
 
     @Override

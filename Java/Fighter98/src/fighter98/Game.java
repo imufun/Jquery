@@ -4,6 +4,7 @@ import fighter98.gfx.ImageLoader;
 import fighter98.display.Display;
 import fighter98.gfx.Assets;
 import fighter98.gfx.SpriteSheet;
+import input.KeyManager;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -31,26 +32,29 @@ public class Game implements Runnable {
     private State  Gamestate;
     private State  menuState;
     
-    
+    private KeyManager keyManager;
     
     public Game(String title, int width, int height) {
         this.title = title;
         this.width = width;
         this.height = height;
+        
+        keyManager = new KeyManager();
 
     }
 
     private void init() {
         display = new Display(width, height, title);         
-        Assets.init();
-        
-        Gamestate = new GameState();
-        menuState = new MenuState();
+        display.getFram().addKeyListener(keyManager);
+        Assets.init();        
+        Gamestate = new GameState(this);
+        menuState = new MenuState(this);
         State.setState(Gamestate);
     }
  
  
     private void tick() {
+        keyManager.tick();
         if (State.getState()!=null) {
             State.getState().tick();
         }
@@ -110,6 +114,9 @@ public class Game implements Runnable {
             }
         }
         stop();
+    }
+    public KeyManager geKeyManager(){
+        return keyManager;
     }
 
     public synchronized void start() {
