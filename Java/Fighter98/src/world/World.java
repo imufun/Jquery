@@ -1,26 +1,30 @@
 package world;
 
+import fighter98.Game;
 import java.awt.Graphics;
 import tilegame.DirtTile;
 import tilegame.Tile;
 
 public class World {
 
+    private Game game;
     private int width, height;
     private int spanX, spanY;
     private int[][] tiles;
 
-    public World(String path) {
+    public World(Game game, String path) {
+        this.game = game;
         loadWorld(path);
     }
 
     public void tick() {
+
     }
 
     public void render(Graphics graphics) {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                getTile(x, y).render(graphics, x * Tile.TILEHEIGHT, y * Tile.TILEHEIGHT);
+                getTile(x, y).render(graphics, (int) (x * Tile.TILEHEIGHT - game.getGameCamera().getxOffest()), (int) (y * Tile.TILEHEIGHT - game.getGameCamera().getyOffset()));
             }
         }
     }

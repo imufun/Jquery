@@ -15,19 +15,19 @@ public class GameState extends State {
     public GameState(Game game) {
         super(game);
         player = new Player(game, 100, 100);
-        world = new World("res/world/world1.txt");
-    }    
+        world = new World(game, "res/world/world1.txt"); 
+    }
     
     @Override
     public void tick() {
-        player.tick();
+        player.tick(); 
     }
     
     @Override
     public void render(Graphics graphics) {
         // graphics.drawImage(Assets.dirt, 0, 0, null);     
         world.render(graphics);
-        player.render(graphics); 
+        player.render(graphics);
         
-    }    
+    }
 }
