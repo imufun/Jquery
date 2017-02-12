@@ -22,8 +22,17 @@ public class World {
     }
 
     public void render(Graphics graphics) {
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+
+        //start Rendering Efficiency // here condition checking...
+        int xStart = (int) Math.max(0, game.getGameCamera().getxOffest() / Tile.TILEWIDTH);
+        int xEnd = (int) Math.min(width, (game.getGameCamera().getxOffest() + game.getWidth()) / Tile.TILEWIDTH + 1);
+
+        int yStart = (int) Math.max(0, game.getGameCamera().getyOffset() / Tile.TILEHEIGHT);
+        int yEnd = (int) Math.min(height, (game.getGameCamera().getyOffset() + game.getHeight()) / Tile.TILEHEIGHT + 1);
+        //end Rendering Efficiency
+
+        for (int y = yStart; y < yEnd; y++) {
+            for (int x = xStart; x < xEnd; x++) {
                 getTile(x, y).render(graphics, (int) (x * Tile.TILEHEIGHT - game.getGameCamera().getxOffest()), (int) (y * Tile.TILEHEIGHT - game.getGameCamera().getyOffset()));
             }
         }

@@ -2,6 +2,7 @@ package entity;
 
 import fighter98.Game;
 import fighter98.gfx.Assets;
+import static fighter98.gfx.Assets.mainplayer;
 import java.awt.Graphics;
 
 public class Player extends Creature {
@@ -38,11 +39,25 @@ public class Player extends Creature {
             xMove = speed;
         }
 
+        // speed boost
+        if (game.geKeyManager().shift) {
+            yMove = -boostspeed;
+        }
+        if (game.geKeyManager().shift) {
+            yMove = boostspeed;
+        }
+        if (game.geKeyManager().shift) {
+            xMove = -boostspeed;
+        }
+        if (game.geKeyManager().shift) {
+            xMove = boostspeed;
+        }
+
     }
 
     @Override
     public void render(Graphics graphics) {
-        graphics.drawImage(Assets.player, (int) (x -game.getGameCamera().getxOffest()), (int) (y -game.getGameCamera().getyOffset()), width, health, null);
+        graphics.drawImage(Assets.mainplayer, (int) (x - game.getGameCamera().getxOffest()), (int) (y - game.getGameCamera().getyOffset()), width, health, null);
         //this is proper movement with camera
     }
 

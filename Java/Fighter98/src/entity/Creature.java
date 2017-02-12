@@ -6,11 +6,13 @@ public abstract class Creature extends Entity {
 
     public static final int DEFAULT_HEALTH = 10;
     public static final float DEFAULT_SPEED = 3.0f;
+    public static final float BOOST_SPEED = 8.0f;
     public static final int DEFAULT_CREATER_WIDTH = 64,
             DEFAULT_CREATER_HIGHT = 64;
 
     protected int health;
     protected float speed;
+    protected float boostspeed;
 
     protected float xMove, yMove;
 
@@ -18,6 +20,7 @@ public abstract class Creature extends Entity {
         super(game, x, y, width, height);
         health = DEFAULT_HEALTH;
         speed = DEFAULT_SPEED;
+        boostspeed = BOOST_SPEED;
     }
 
     //move
@@ -58,5 +61,15 @@ public abstract class Creature extends Entity {
     public void setSpeed(float speed) {
         this.speed = speed;
     }
+
+    public float getBoostspeed() {
+        return boostspeed;
+    }
+
+    public void setBoostspeed(float boostspeed) {
+        this.boostspeed = boostspeed;
+    }
+    
+    
 
 }
