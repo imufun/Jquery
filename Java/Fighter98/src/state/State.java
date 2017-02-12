@@ -1,11 +1,11 @@
- 
 package state;
 
 import fighter98.Game;
 import java.awt.Graphics;
- 
+import tilegame.Handler;
+
 public abstract class State {
-    
+
     private static State currentState = null;
 
     public static void setState(State state) {
@@ -15,17 +15,15 @@ public abstract class State {
     public static State getState() {
         return currentState;
     }
-       
-    protected Game game; 
 
-    public State(Game game) {
-        this.game= game;
+    protected Handler handler;
+
+    public State(Handler handler) {
+        this.handler = handler;
     }
-    
-    
-    
+
     public abstract void tick();
+
     public abstract void render(Graphics graphics);
-    
-    
+
 }

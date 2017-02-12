@@ -14,6 +14,7 @@ import java.util.Random;
 import state.GameState;
 import state.MenuState;
 import state.State;
+import tilegame.Handler;
 
 public class Game implements Runnable {
 
@@ -36,6 +37,9 @@ public class Game implements Runnable {
 
     //Camera
     private GameCamera gameCamera;
+    
+    //Handler
+    private Handler handler;
 
     public Game(String title, int width, int height) {
         this.title = title;
@@ -52,9 +56,9 @@ public class Game implements Runnable {
         Assets.init();
 
         gameCamera = new GameCamera(this, 0, 0);
-
-        Gamestate = new GameState(this);
-        menuState = new MenuState(this);
+        handler =new Handler(this);
+        Gamestate = new GameState(handler);
+        menuState = new MenuState(handler);
         State.setState(Gamestate);
     }
 
