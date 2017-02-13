@@ -10,6 +10,7 @@ public class World {
     private int width, height;
     private int spanX, spanY;
     private int[][] tiles;
+     
 
     public World(Handler handler, String path) {
         this.handler = handler;
@@ -38,6 +39,12 @@ public class World {
     }
 
     public Tile getTile(int x, int y) {
+
+        //Collision Detection
+        if (x < 0 || y < 0 || x >= width || y >= height) {
+            return Tile.grassTile;
+        }
+
         Tile t = Tile.tiles[tiles[x][y]];
         if (t == null) {
             return Tile.dirTile;

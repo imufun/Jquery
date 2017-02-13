@@ -3,6 +3,7 @@ package entity;
 import fighter98.Game;
 import fighter98.gfx.Assets;
 import static fighter98.gfx.Assets.mainplayer;
+import java.awt.Color;
 import java.awt.Graphics;
 import tilegame.Handler;
 
@@ -10,7 +11,12 @@ public class Player extends Creature {
 
     public Player(Handler handler, float x, float y) {
         super(handler, x, y, Creature.DEFAULT_CREATER_WIDTH, Creature.DEFAULT_CREATER_HIGHT);
-       // this.handler = handler;
+        // this.handler = handler;
+
+        bounds.x = 16;
+        bounds.y = 32;
+        bounds.width = 32;
+        bounds.height = 32;
     }
 
     @Override
@@ -60,6 +66,9 @@ public class Player extends Creature {
     public void render(Graphics graphics) {
         graphics.drawImage(Assets.mainplayer, (int) (x - handler.getGameCamera().getxOffest()), (int) (y - handler.getGameCamera().getyOffset()), width, health, null);
         //this is proper movement with camera
+        graphics.setColor(Color.red);
+        
+        graphics.fillRect((int) (x + bounds.x - handler.getGameCamera().getxOffest()), (int) (y + bounds.y - handler.getGameCamera().getyOffset()), bounds.width, bounds.height);
     }
 
 }
