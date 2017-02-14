@@ -2,27 +2,44 @@ package fighter98.gfx;
 
 import entity.Entity;
 import fighter98.Game;
+import tilegame.Handler;
 
 public class GameCamera {
 
-    private Game game;
-    private Entity e;
+    private Handler handler;
+    //  private Entity e;
     private float xOffest, yOffset;
 
-    public GameCamera(Game game, float xOffset, float yOffset) {
-        this.game = game;
+    public GameCamera(Handler handler, float xOffset, float yOffset) {
+        this.handler = handler;
         this.xOffest = xOffset;
         this.yOffset = yOffset;
     }
 
+    public void checkBankSpace() {
+        if (xOffest < 0) {
+            xOffest = 0;
+        } else if (xOffest > handler.getWorld().getWidth() * tilegame.Tile.TILEWIDTH - handler.getWidth()) {
+            xOffest = handler.getWorld().getWidth() * tilegame.Tile.TILEWIDTH - handler.getWidth();
+        }
+
+        if (yOffset < 0) {
+            yOffset = 0;
+        } else if (yOffset > handler.getWorld().getHeight() * tilegame.Tile.TILEHEIGHT - handler.getHeight()) {
+            yOffset = handler.getWorld().getHeight() * tilegame.Tile.TILEHEIGHT - handler.getHeight();
+        }
+    }
+
     public void centerOnEntity(Entity e) {
-        xOffest = e.getX() - game.getWidth() / 2 + e.getWidth() / 2;
-        yOffset = e.getY() - game.getHeight() / 2 + e.getHeight() / 2;
+        xOffest = e.getX() - handler.getWidth() / 2 + e.getWidth() / 2;
+        yOffset = e.getY() - handler.getHeight() / 2 + e.getHeight() / 2;
+        checkBankSpace();
     }
 
     public void move(float xAmnt, float yAmnt) {
         xOffest += xAmnt;
         yOffset += yAmnt;
+        checkBankSpace();
     }
 
     public float getxOffest() {
