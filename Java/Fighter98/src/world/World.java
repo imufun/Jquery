@@ -10,7 +10,6 @@ public class World {
     private int width, height;
     private int spanX, spanY;
     private int[][] tiles;
-     
 
     public World(Handler handler, String path) {
         this.handler = handler;
@@ -67,6 +66,14 @@ public class World {
             }
         }
 
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
     }
 
 }
