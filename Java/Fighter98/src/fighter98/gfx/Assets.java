@@ -9,7 +9,7 @@ public class Assets {
     public static BufferedImage[] player_down, player_up, player_left, player_right;
 
     public static void init() {
-        SpriteSheet sheet = new SpriteSheet(ImageLoader.LoadImage("/textures/sheet_2.png"));
+        SpriteSheet sheet = new SpriteSheet(ImageLoader.LoadImage("/textures/sheet_3.png"));
 
         //player = sheet.crop(0, 0, width, height);
         player_down = new BufferedImage[2];
