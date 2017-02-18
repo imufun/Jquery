@@ -6,6 +6,7 @@ import fighter98.gfx.Assets;
 import fighter98.gfx.GameCamera;
 import fighter98.gfx.SpriteSheet;
 import input.KeyManager;
+import input.MouseManager;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -29,15 +30,17 @@ public class Game implements Runnable {
 
     //load 
     //State
-    private State Gamestate;
-    private State menuState;
+    public State Gamestate;
+    public State menuState;
 
     //input
     private KeyManager keyManager;
+    //mouse
+    private MouseManager mouseManager;
 
     //Camera
     private GameCamera gameCamera;
-    
+
     //Handler
     private Handler handler;
 
@@ -47,20 +50,27 @@ public class Game implements Runnable {
         this.height = height;
 
         keyManager = new KeyManager();
+        mouseManager = new MouseManager();
 
     }
 
     private void init() {
         display = new Display(width, height, title);
         display.getFram().addKeyListener(keyManager);
+
+        display.getFram().addMouseListener(mouseManager);
+        display.getFram().addMouseMotionListener(mouseManager);
+        display.getCanvas().addMouseListener(mouseManager);
+        display.getCanvas().addMouseMotionListener(mouseManager);
+
         Assets.init();
-        
-        handler =new Handler(this);
+
+        handler = new Handler(this);
         gameCamera = new GameCamera(handler, 0, 0);
-    
+
         Gamestate = new GameState(handler);
         menuState = new MenuState(handler);
-        State.setState(Gamestate);
+        State.setState(menuState);
     }
 
     private void tick() {
@@ -128,11 +138,14 @@ public class Game implements Runnable {
 
     public KeyManager geKeyManager() {
         return keyManager;
-
     }
 
     public GameCamera getGameCamera() {
         return gameCamera;
+    }
+
+    public MouseManager getMouseManager() {
+        return mouseManager;
     }
 
     public int getWidth() {
