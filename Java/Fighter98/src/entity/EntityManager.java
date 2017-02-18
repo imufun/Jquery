@@ -2,6 +2,7 @@ package entity;
 
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Comparator;
 import tilegame.Handler;
 
 public class EntityManager {
@@ -9,6 +10,17 @@ public class EntityManager {
     private Handler handler;
     private Player player;
     private ArrayList<Entity> entities;
+    
+    
+    private Comparator<Entity> renderSorter = new Comparator<Entity>() {
+        @Override
+        public int compare(Entity a, Entity b) {
+            if (a.getY() + a.getHeight() < b.getY() + b.getHeight()) {
+                return -1;
+            }
+            return 1;
+        }
+    };
 
     public EntityManager(Handler handler, Player player) {
         this.handler = handler;
@@ -16,8 +28,6 @@ public class EntityManager {
         entities = new ArrayList<>();
     }
 
-    
-    
     public void tick() {
         for (int i = 0; i < entities.size(); i++) {
             Entity e = entities.get(i);
