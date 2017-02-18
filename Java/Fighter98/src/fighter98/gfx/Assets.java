@@ -7,9 +7,14 @@ public class Assets {
     public static final int width = 32, height = 32;
     public static BufferedImage dirt, grass, stone, tree, mainplayer;
     public static BufferedImage[] player_down, player_up, player_left, player_right;
+    public static BufferedImage[] btn_start;
 
     public static void init() {
-        SpriteSheet sheet = new SpriteSheet(ImageLoader.LoadImage("/textures/sheet_3.png"));
+        SpriteSheet sheet = new SpriteSheet(ImageLoader.LoadImage("/textures/sheet_4.png"));
+
+        btn_start = new BufferedImage[2];
+        btn_start[0] = sheet.crop(width * 6, height * 4, width * 2, height);
+        btn_start[1] = sheet.crop(width * 6, height * 5, width * 2, height);
 
         //player = sheet.crop(0, 0, width, height);
         player_down = new BufferedImage[2];
