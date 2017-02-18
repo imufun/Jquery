@@ -25,15 +25,25 @@ public abstract class Creature extends Entity {
         health = DEFAULT_HEALTH;
         speed = DEFAULT_SPEED;
         boostspeed = BOOST_SPEED;
+        xMove = 0;
+        yMove = 0;
     }
 
     //move
     public void move() {
 
+        if (!checkEntityCollisions(xMove, 0f)) {
+            moveX();
+        }
+        if (!checkEntityCollisions(0f, yMove)) {
+            moveY();
+        }
+        
+        
         //x += xMove;
         // y += yMove;
-        moveX();
-        moveY();
+//        moveX();
+//        moveY();
     }
 
     public void moveX() {

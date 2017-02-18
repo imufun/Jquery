@@ -20,16 +20,16 @@ public class World {
     public World(Handler handler, String path) {
         this.handler = handler;
         entityManager = new EntityManager(handler, new Player(handler, 100, 100));
-        entityManager.addEntity(new Tree(handler, 100, 100));
-        entityManager.addEntity(new Tree(handler, 100, 120));
-        entityManager.addEntity(new Tree(handler, 100, 150));
-        entityManager.addEntity(new Tree(handler, 100, 170));
+        entityManager.addEntity(new Tree(handler, 689, 100));
+        entityManager.addEntity(new Tree(handler, 844, 120));
+        entityManager.addEntity(new Tree(handler, 125, 150));
+        entityManager.addEntity(new Tree(handler, 352, 170));
         entityManager.addEntity(new Tree(handler, 100, 200));
-        entityManager.addEntity(new Tree(handler, 100, 250));
-        entityManager.addEntity(new Tree(handler, 100, 300));
-        entityManager.addEntity(new Tree(handler, 100, 400));
-        entityManager.addEntity(new Tree(handler, 100, 500));
-        entityManager.addEntity(new Tree(handler, 100, 600));
+        entityManager.addEntity(new Tree(handler, 426, 250));
+        entityManager.addEntity(new Tree(handler, 120, 300));
+        entityManager.addEntity(new Tree(handler, 950, 550));
+        entityManager.addEntity(new Tree(handler, 503, 500));
+        entityManager.addEntity(new Tree(handler, 800, 600));
 
         loadWorld(path);
 
@@ -100,4 +100,14 @@ public class World {
         return height;
     }
 
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    
+    
 }
