@@ -1,23 +1,44 @@
 package world;
 
+import entity.EntityManager;
+import entity.Player;
 import java.awt.Graphics;
 import tilegame.Handler;
 import tilegame.Tile;
+import tilegame.Tree;
 
 public class World {
 
     private Handler handler;
     private int width, height;
-    private int spanX, spanY;
+    private int spawnX, spawnY;
     private int[][] tiles;
+
+    //Entity
+    private EntityManager entityManager;
 
     public World(Handler handler, String path) {
         this.handler = handler;
+        entityManager = new EntityManager(handler, new Player(handler, 100, 100));
+        entityManager.addEntity(new Tree(handler, 689, 100));
+        entityManager.addEntity(new Tree(handler, 844, 120));
+        entityManager.addEntity(new Tree(handler, 125, 150));
+        entityManager.addEntity(new Tree(handler, 352, 170));
+        entityManager.addEntity(new Tree(handler, 100, 200));
+        entityManager.addEntity(new Tree(handler, 426, 250));
+        entityManager.addEntity(new Tree(handler, 120, 300));
+        entityManager.addEntity(new Tree(handler, 950, 550));
+        entityManager.addEntity(new Tree(handler, 503, 500));
+        entityManager.addEntity(new Tree(handler, 800, 600));
+
         loadWorld(path);
+
+        entityManager.getPlayer().setX(spawnX);
+        entityManager.getPlayer().setY(spawnY);
     }
 
     public void tick() {
-
+        entityManager.tick();
     }
 
     public void render(Graphics graphics) {
@@ -35,6 +56,9 @@ public class World {
                 getTile(x, y).render(graphics, (int) (x * Tile.TILEHEIGHT - handler.getGameCamera().getxOffest()), (int) (y * Tile.TILEHEIGHT - handler.getGameCamera().getyOffset()));
             }
         }
+
+        //Entity
+        entityManager.rendder(graphics);
     }
 
     public Tile getTile(int x, int y) {
@@ -56,8 +80,8 @@ public class World {
         String[] token = file.split("\\s+");
         width = utils.Utils.parseInt(token[0]);
         height = utils.Utils.parseInt(token[1]);
-        spanX = utils.Utils.parseInt(token[2]);
-        spanY = utils.Utils.parseInt(token[3]);
+        spawnX = utils.Utils.parseInt(token[2]);
+        spawnY = utils.Utils.parseInt(token[3]);
 
         tiles = new int[width][height];
         for (int y = 0; y < height; y++) {
@@ -76,4 +100,14 @@ public class World {
         return height;
     }
 
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    
+    
 }
