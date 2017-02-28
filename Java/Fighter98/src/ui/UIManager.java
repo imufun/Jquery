@@ -12,7 +12,7 @@ public class UIManager {
 
     public UIManager(Handler handler) {
         this.handler = handler;
-        objects = new ArrayList<>();
+        objects = new ArrayList<UIObject>();
     }
 
     public void tick() {
