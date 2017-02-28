@@ -1,8 +1,7 @@
 package ui;
 
-public class ClickListener {
+public interface ClickListener {
 
-    public void onClick() {
-    }
+    public void onClick();
 
 }
