@@ -6,7 +6,7 @@ import fighter98.gfx.Assets;
 import java.awt.Graphics;
 import tilegame.Handler;
 import tilegame.Tile;
-import tilegame.Tree;
+import entity.sattics.Tree;
 import world.World;
 
 public class GameState extends State {

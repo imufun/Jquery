@@ -1,11 +1,13 @@
 package world;
 
+import entity.Entity;
 import entity.EntityManager;
 import entity.Player;
 import java.awt.Graphics;
 import tilegame.Handler;
 import tilegame.Tile;
-import tilegame.Tree;
+import entity.sattics.Tree;
+import entity.statics.Rock;
 
 public class World {
 
@@ -30,6 +32,12 @@ public class World {
         entityManager.addEntity(new Tree(handler, 950, 550));
         entityManager.addEntity(new Tree(handler, 503, 500));
         entityManager.addEntity(new Tree(handler, 800, 600));
+
+        entityManager.addEntity(new Rock(handler, 100, 20));
+        entityManager.addEntity(new Rock(handler, 140, 350));
+        entityManager.addEntity(new Rock(handler, 312, 467));
+        entityManager.addEntity(new Rock(handler, 176, 251));
+        entityManager.addEntity(new Rock(handler, 133, 777));
 
         loadWorld(path);
 
@@ -108,6 +116,4 @@ public class World {
         this.entityManager = entityManager;
     }
 
-    
-    
 }

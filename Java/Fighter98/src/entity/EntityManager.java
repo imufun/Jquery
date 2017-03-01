@@ -1,5 +1,6 @@
 package entity;
 
+import com.oracle.jrockit.jfr.FlightRecorder;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -32,6 +33,10 @@ public class EntityManager {
         for (int i = 0; i < entities.size(); i++) {
             Entity e = entities.get(i);
             e.tick();
+            //if player hurt then remove
+            if (!e.isActive()) {
+               entities.remove(e);
+            }
         }
         player.tick();
     }

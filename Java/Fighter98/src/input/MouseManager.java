@@ -36,20 +36,8 @@ public class MouseManager implements MouseListener, MouseMotionListener {
         return mouseY;
     }
 
-    @Override
-<<<<<<< HEAD
-    public void mouseDragged(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-=======
->>>>>>> 3f9c970d010f8db09bfa37908eff660d06e22bcf
+ 
+ 
     public void mousePressed(MouseEvent e) {
 
         if (e.getButton() == MouseEvent.BUTTON1) {
@@ -68,7 +56,7 @@ public class MouseManager implements MouseListener, MouseMotionListener {
         }
 
         if (uIManager != null) {
-<<<<<<< HEAD
+ 
             uIManager.onMouseRelease(e);
         }
     }
@@ -80,32 +68,19 @@ public class MouseManager implements MouseListener, MouseMotionListener {
         mouseY = e.getY();
 
         if (uIManager != null) {
-=======
->>>>>>> 3f9c970d010f8db09bfa37908eff660d06e22bcf
-            uIManager.onMouseRelease(e);
-        }
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-
-        mouseX = e.getX();
-        mouseY = e.getY();
-
-        if (uIManager != null) {
+ 
             uIManager.onMouseMove(e);
         }
     }
+
+   
 
     @Override
     public void mouseDragged(MouseEvent e) {
 
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
+ 
 
     @Override
     public void mouseEntered(MouseEvent e) {
@@ -115,6 +90,11 @@ public class MouseManager implements MouseListener, MouseMotionListener {
     @Override
     public void mouseExited(MouseEvent e) {
 
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+         
     }
 
 }

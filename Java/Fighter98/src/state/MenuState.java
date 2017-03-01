@@ -23,10 +23,7 @@ public class MenuState extends State {
             public void onClick() {
                 handler.getMouseManager().setUIManager(null);
                 State.setState(handler.getGame().Gamestate);                
-<<<<<<< HEAD
-                System.out.println("fdfsf");
-=======
->>>>>>> 3f9c970d010f8db09bfa37908eff660d06e22bcf
+ 
             }
         }));
     }

@@ -19,7 +19,7 @@ public class Handler {
         return game.getGameCamera();
     }
 
-    public KeyManager geKeyManager() {
+    public KeyManager getKeyManager() {
         return game.geKeyManager();
     }
 
