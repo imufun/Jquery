@@ -33,6 +33,9 @@ public class UIImageButton extends UIObject {
     @Override
     public void onClick() {
         clicker.onClick();
+<<<<<<< HEAD
         System.out.println("ff");
+=======
+>>>>>>> 3f9c970d010f8db09bfa37908eff660d06e22bcf
     }
 }
