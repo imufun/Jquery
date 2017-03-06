@@ -8,6 +8,8 @@ import tilegame.Handler;
 
 public abstract class Entity {
 
+    public static final int DDEFAULT_HEALTH = 3;
+    
     protected int health;
     protected Handler handler;
     protected float x, y;
