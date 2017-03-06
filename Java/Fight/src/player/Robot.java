@@ -2,13 +2,13 @@ package player;
 
 public class Robot {
 
-    private int centerX = 100;
-    private int centerY = 100;
+    public int centerX = 100;
+    public int centerY = 100;
 
     private boolean Jumped = false;
 
-    private int SpeedX = 0;
-    private int SpeedY = 1;
+    public int SpeedX = 0;
+    public int SpeedY = 1;
 
     private void update() {
         if (SpeedX < 0) {
@@ -39,22 +39,63 @@ public class Robot {
                 Jumped = false;
             }
         }
-        
-       // Prevents going beyond X coordinate of 0
-        
 
+        // Prevents going beyond X coordinate of 0
+        if (centerX + SpeedX <= 60) {
+            centerX += 61;
+        }
 
     }
 
     private void MoveLeft() {
+        SpeedX = -6;
     }
 
     private void MoveRight() {
+        SpeedX = 6;
     }
 
     private void Stop() {
+        SpeedX = 0;
     }
 
     private void Jummp() {
+        if (Jumped == false) {
+            SpeedY = -15;
+            Jumped = true;
+        }
     }
+
+    public int getCenterX() {
+        return centerX;
+    }
+
+    public void setCenterX(int centerX) {
+        this.centerX = centerX;
+    }
+
+    public int getCenterY() {
+        return centerY;
+    }
+
+    public void setCenterY(int centerY) {
+        this.centerY = centerY;
+    }
+
+    public boolean isJumped() {
+        return Jumped;
+    }
+
+    public void setJumped(boolean Jumped) {
+        this.Jumped = Jumped;
+    }
+
+    public int getSpeedX() {
+        return SpeedX;
+    }
+
+    public void setSpeedX(int SpeedX) {
+        this.SpeedX = SpeedX;
+    }
+
 }
