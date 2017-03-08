@@ -39,6 +39,7 @@ public class EntityManager {
             }
         }
         player.tick();
+        //entities.sort(renderSorter);
     }
 
     public void rendder(Graphics graphics) {
