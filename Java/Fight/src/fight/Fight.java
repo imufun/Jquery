@@ -23,7 +23,7 @@ public class Fight extends Applet implements Runnable, KeyListener {
 
     private Robot robot;
     private Image image, charecter;
-    private Graphics graphics;
+    private Graphics second;
     private URL base;
 
     @Override
@@ -32,17 +32,25 @@ public class Fight extends Applet implements Runnable, KeyListener {
         setSize(800, 480);
         setBackground(Color.BLACK);
         setFocusable(true);
+        addKeyListener(this);
         Frame frame = (Frame) this.getParent().getParent();
         frame.setLocationRelativeTo(null);
+        frame.setTitle("FIGHT");
         frame.setVisible(true);
 
         try {
             base = getDocumentBase();
         } catch (Exception e) {
+
         }
 
         //image setups
-        charecter = getImage(base, "res/charecter.png");
+        //charecter = getImage(base, "res/charecter.png");
+        //charecter = getImage(base, "data/chatecter.png");
+        // Image Setups
+        charecter = getImage(base, "./data/character.png");
+        // charecter =getImage(getClass().getResource("data/chatecter.png"));
+
     }
 
     @Override
@@ -65,7 +73,7 @@ public class Fight extends Applet implements Runnable, KeyListener {
     @Override
     public void run() {
         while (true) {
-
+            robot.update();
             repaint();
             try {
                 Thread.sleep(17);
@@ -80,13 +88,13 @@ public class Fight extends Applet implements Runnable, KeyListener {
     public void update(Graphics g) {
         if (image == null) {
             image = createImage(this.getHeight(), this.getHeight());
-            graphics = image.getGraphics();
+            second = image.getGraphics();
         }
 
-        graphics.setColor(getBackground());
-        graphics.fillRect(0, 0, getWidth(), getHeight());
-        graphics.setColor(getForeground());
-        paint(graphics);
+        second.setColor(getBackground());
+        second.fillRect(0, 0, getWidth(), getHeight());
+        second.setColor(getForeground());
+        paint(second);
 
         g.drawImage(image, 0, 0, this);
     }
@@ -97,8 +105,6 @@ public class Fight extends Applet implements Runnable, KeyListener {
         g.drawImage(charecter, robot.getCenterX() - 60, robot.getCenterY() - 63, this);
     }
 
-    
-    
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -115,12 +121,15 @@ public class Fight extends Applet implements Runnable, KeyListener {
                 System.out.println("Move Down");
                 break;
             case KeyEvent.VK_RIGHT:
+                robot.MoveRight();
                 System.out.println("Move Right");
                 break;
             case KeyEvent.VK_LEFT:
+                robot.MoveLeft();
                 System.out.println("Move Left");
                 break;
             case KeyEvent.VK_SPACE:
+                robot.Jummp();
                 System.out.println("Jump");
                 break;
         }
@@ -138,10 +147,12 @@ public class Fight extends Applet implements Runnable, KeyListener {
                 break;
 
             case KeyEvent.VK_LEFT:
+                robot.Stop();
                 System.out.println("Stop moving left");
                 break;
 
             case KeyEvent.VK_RIGHT:
+                robot.Stop();
                 System.out.println("Stop moving right");
                 break;
 

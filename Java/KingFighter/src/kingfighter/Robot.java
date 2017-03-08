@@ -1,4 +1,4 @@
-package player;
+package kingfighter;
 
 public class Robot {
 
