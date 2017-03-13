@@ -1,6 +1,7 @@
 package player;
 
 import fight.Background;
+import fight.Fight;
 
 public class Robot {
 
@@ -17,17 +18,17 @@ public class Robot {
     private boolean movingRight = false;
     private boolean ducked = false;
 
-    private static Background bg1 = fight.Fight.getBg1();
-    private static Background bg2 = fight.Fight.getBg2();
-
     public int SpeedX = 0;
     public int SpeedY = 1;
+
+    private static Background bg1 = Fight.getBg1();
+    private static Background bg2 = Fight.getBg2();
 
     public void update() {
 
         // Moves Character or Scrolls Background accordingly.
         if (SpeedX < 0) {
-            centerX = +SpeedX;
+            centerX += SpeedX;
         }
 
         if (SpeedX == 0 || SpeedX < 0) {
@@ -45,7 +46,7 @@ public class Robot {
         }
 
         // Updates Y Position
-        centerY += SpeedX;
+        centerY += SpeedY;
         if (centerY + SpeedY >= GROUND) {
             centerY += GROUND;
         }
@@ -61,52 +62,18 @@ public class Robot {
         }
         // Prevents going beyond X coordinate of 0
         if (centerX + SpeedX <= 60) {
-            centerX = 60;
+            centerX = 61;
         }
 
-//        if (SpeedX < 0) {
-//            centerX += SpeedX;
-//        } else if (SpeedX == 0) {
-//            System.out.println("Do not move background");
-//        } else {
-//            if (SpeedX <= 150) {
-//                centerX += SpeedX;
-//            } else {
-//                System.out.println("Scroll Background Here");
-//            }
-//        }
-//
-//        //update Y position
-//        if (centerY + SpeedY >= 382) {
-//            centerY = 382;
-//            System.out.println("Down...");
-//        } else {
-//            centerY += SpeedY;
-//        }
-//
-//        //Handlies jumping
-//        if (Jumped == true) {
-//            SpeedY += 1;
-//            if (centerY + SpeedY >= 382) {
-//                centerY = 382;
-//                SpeedY = 0;
-//                Jumped = false;
-//            }
-//        }
-//
-//        // Prevents going beyond X coordinate of 0
-//        if (centerX + SpeedX <= 60) {
-//            centerX += 61;
-//        }
     }
 
-    public void MoveLeft() {
+    public void MoveRight() {
         if (ducked == false) {
             SpeedX = MOVESPEED;
         }
     }
 
-    public void MoveRight() {
+    public void MoveLeft() {
         if (ducked == false) {
             SpeedX = MOVESPEED;
         }
