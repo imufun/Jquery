@@ -8,8 +8,11 @@ package gameloop;
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import kingfighter.Robot;
 
 /**
  *
@@ -19,11 +22,18 @@ public class StartingClass implements Runnable, KeyListener {
 
     private boolean running = false;
 
+    private Robot robot;
+    private Image image;
+    private Graphics graphics;
+    
     public void init() {
         start();
+        
+        
     }
 
     public void start() {
+        robot = new Robot();
         Thread thread = new Thread(this);      
         thread.start(); 
     }
@@ -33,6 +43,10 @@ public class StartingClass implements Runnable, KeyListener {
 
     public void destroy() {
     }
+    
+    private void update(Graphics g){
+        
+    }
 
     @Override
     public void run() {
@@ -40,6 +54,7 @@ public class StartingClass implements Runnable, KeyListener {
             System.out.println("hello");
         }
         while (true) {
+            robot.update();
             try {
                 Thread.sleep(17);
             } catch (InterruptedException e) {
