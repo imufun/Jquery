@@ -2,9 +2,6 @@ package enginTester;
 
 import org.lwjgl.opengl.Display;
 
-import com.sun.webkit.graphics.WCGraphicsContext;
-
-import javafx.scene.control.Control;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
 import renderEngine.RawModel;
@@ -28,8 +25,13 @@ public class MainGameLoop {
 			0.5f, 0.5f, 0f,
 			-0.5f, 0.5f,0f
 		};
+		
+		int[] indices ={
+			0,1,3,
+			3,1,2
+		};
 
-		RawModel model = loader.loadToVAO(vertices);
+		RawModel model = loader.loadToVAO(vertices, indices);
 		while (!Display.isCloseRequested()) {
 			renderer.prepare();	
 			renderer.render(model);
