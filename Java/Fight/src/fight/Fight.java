@@ -22,9 +22,11 @@ import java.net.URL;
 public class Fight extends Applet implements Runnable, KeyListener {
 
     private Robot robot;
-    private Image image, charecter;
+    private Image image, charecter, background;
     private Graphics second;
     private URL base;
+
+    private static Background bg1, bg2;
 
     @Override
     public void init() {
@@ -49,6 +51,7 @@ public class Fight extends Applet implements Runnable, KeyListener {
         //charecter = getImage(base, "data/chatecter.png");
         // Image Setups
         charecter = getImage(base, "../data/character.png");
+        background = getImage(base, "../data/background.png");
         // charecter =getImage(getClass().getResource("data/chatecter.png"));
 
     }
@@ -56,6 +59,8 @@ public class Fight extends Applet implements Runnable, KeyListener {
     @Override
     public void start() {
         robot = new Robot();
+        bg1 = new Background(0, 0);
+        bg2 = new Background(2160, 0);
         Thread thread = new Thread(this);
         thread.start();
     }
@@ -74,6 +79,8 @@ public class Fight extends Applet implements Runnable, KeyListener {
     public void run() {
         while (true) {
             robot.update();
+            bg1.update();
+            bg2.update();
             repaint();
             try {
                 Thread.sleep(17);
@@ -102,7 +109,12 @@ public class Fight extends Applet implements Runnable, KeyListener {
     //paint method
     @Override
     public void paint(Graphics g) {
+
+        g.drawImage(background, bg1.getBgX(), bg1.getBgY(), this);
+        g.drawImage(background, bg2.getBgY(), bg1.getBgY(), this);
+
         g.drawImage(charecter, robot.getCenterX() - 60, robot.getCenterY() - 63, this);
+
     }
 
     @Override
@@ -161,5 +173,13 @@ public class Fight extends Applet implements Runnable, KeyListener {
                 break;
 
         }
+    }
+
+    public static Background getBg1() {
+        return bg1;
+    }
+
+    public static Background getBg2() {
+        return bg2;
     }
 }

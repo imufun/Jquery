@@ -2,6 +2,9 @@ package player;
 
 public class Robot {
 
+    // Constants are Here
+    
+    
     public int centerX = 100;
     public int centerY = 100;
 
@@ -14,7 +17,7 @@ public class Robot {
         if (SpeedX < 0) {
             centerX += SpeedX;
         } else if (SpeedX == 0) {
-            // System.out.println("Do not move background");
+            System.out.println("Do not move background");
         } else {
             if (SpeedX <= 150) {
                 centerX += SpeedX;
@@ -26,6 +29,7 @@ public class Robot {
         //update Y position
         if (centerY + SpeedY >= 382) {
             centerY = 382;
+            System.out.println("Down...");
         } else {
             centerY += SpeedY;
         }
