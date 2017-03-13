@@ -48,7 +48,7 @@ public class Fight extends Applet implements Runnable, KeyListener {
         //charecter = getImage(base, "res/charecter.png");
         //charecter = getImage(base, "data/chatecter.png");
         // Image Setups
-        charecter = getImage(base, "./data/character.png");
+        charecter = getImage(base, "../data/character.png");
         // charecter =getImage(getClass().getResource("data/chatecter.png"));
 
     }
