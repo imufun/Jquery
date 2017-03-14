@@ -23,13 +23,13 @@ import player.Heliboy;
  */
 public class Fight extends Applet implements Runnable, KeyListener {
 
-    private Image image, currentSprite, charecter, charecterDown, charecterJumped, background, heliboy;
+    private Image image, currentSprite, charecter, charecter2, charecter3, charecterDown, charecterJumped, background, heliboy, heliboy2, heliboy3, heliboy4, heliboy5;
     private Graphics second;
     private URL base;
 
     private Robot robot;
     private Heliboy hb1, hb2;
-
+    private Animation anim, hanim;
     private static Background bg1, bg2;
 
     @Override
@@ -58,8 +58,34 @@ public class Fight extends Applet implements Runnable, KeyListener {
         charecterDown = getImage(base, "../data/down.png");
         charecterJumped = getImage(base, "../data/jumped.png");
         currentSprite = charecter;
-        background = getImage(base, "../data/background.png");
+
         heliboy = getImage(base, "../data/heliboy.png");
+        heliboy2 = getImage(base, "../data/heliboy2.png");
+        heliboy3 = getImage(base, "../data/heliboy3.png");
+        heliboy4 = getImage(base, "../data/heliboy4.png");
+        heliboy5 = getImage(base, "../data/heliboy5.png");
+
+        background = getImage(base, "../data/background.png");
+
+        anim = new Animation();
+        anim.addFrame(charecter, 1250);
+        anim.addFrame(charecter2, 50);
+        anim.addFrame(charecter3, 50);
+        anim.addFrame(charecter2, 50);
+
+        hanim = new Animation();
+
+        hanim.addFrame(heliboy, 100);
+        hanim.addFrame(heliboy2, 100);
+        hanim.addFrame(heliboy3, 100);
+        hanim.addFrame(heliboy4, 100);
+        hanim.addFrame(heliboy5, 100);
+        hanim.addFrame(heliboy2, 100);
+        hanim.addFrame(heliboy3, 100);
+        hanim.addFrame(heliboy5, 100);
+        hanim.addFrame(heliboy3, 100);
+
+        currentSprite = anim.getImage();
 
         // charecter =getImage(getClass().getResource("data/chatecter.png"));
     }
@@ -98,12 +124,13 @@ public class Fight extends Applet implements Runnable, KeyListener {
             if (robot.isJumped()) {
                 currentSprite = charecterJumped;
             } else if (robot.isJumped() == false && robot.isDucked() == false) {
-                currentSprite = charecter;
+                currentSprite = anim.getImage();
             }
 
             ArrayList projecttils = robot.getProjectiles();
             for (int i = 0; i < projecttils.size(); i++) {
-                ProjectTile p = (ProjectTile) projecttils.get(i);
+                ProjectTile p;
+                p = (ProjectTile) projecttils.get(i);
                 if (p.isVisible() == true) {
                     p.update();
                 } else {
@@ -116,6 +143,7 @@ public class Fight extends Applet implements Runnable, KeyListener {
             hb2.update();
             bg1.update();
             bg2.update();
+            animation();
             repaint();
             try {
                 Thread.sleep(17);
@@ -149,8 +177,8 @@ public class Fight extends Applet implements Runnable, KeyListener {
         g.drawImage(background, bg1.getBgX(), bg1.getBgY(), this);
         g.drawImage(background, bg2.getBgX(), bg2.getBgY(), this);
 
-        g.drawImage(heliboy, hb1.getCenterX() - 48, hb1.getCenterY() - 48, this);
-        g.drawImage(heliboy, hb2.getCenterX() - 48, hb2.getCenterY() - 48, this);
+        g.drawImage(hanim.getImage(), hb1.getCenterX() - 48, hb1.getCenterY() - 48, this);
+        g.drawImage(hanim.getImage(), hb2.getCenterX() - 48, hb2.getCenterY() - 48, this);
         //player position 
         g.drawImage(currentSprite, robot.getCenterX() - 61, robot.getCenterY() - 63, this);
 
@@ -159,8 +187,7 @@ public class Fight extends Applet implements Runnable, KeyListener {
             ProjectTile p = (ProjectTile) projecttils.get(i);
             g.setColor(Color.YELLOW);
             g.fillRect(p.getX(), p.getY(), 10, 5);
-            
-             
+
         }
 
     }
@@ -180,7 +207,7 @@ public class Fight extends Applet implements Runnable, KeyListener {
                 System.out.println("Move Up");
                 break;
             case KeyEvent.VK_DOWN:
-                currentSprite = charecterDown;
+                currentSprite = anim.getImage();
                 if (robot.isJumped() == false) {
                     robot.setDucked(true);
                     robot.setSpeedX(0);
@@ -249,5 +276,10 @@ public class Fight extends Applet implements Runnable, KeyListener {
 
     public static Background getBg2() {
         return bg2;
+    }
+
+    private void animation() {
+        anim.update(10);
+        hanim.update(50);
     }
 }
