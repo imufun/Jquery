@@ -4,9 +4,9 @@ public class Background {
 
     private int bgX, bgY, speedX;
 
-    public Background(int bgX, int bgY) {
-        this.bgX = bgX;
-        this.bgY = bgY;
+    public Background(int x, int y) {
+        bgX = x;
+        bgY = y;
         speedX = 0;
     }
 
@@ -15,6 +15,8 @@ public class Background {
         if (bgX <= -2160) {
             bgX += 4320;
         }
+
+        System.out.println("background x with speed -----" + bgX);
     }
 
     public int getBgX() {
@@ -40,7 +42,5 @@ public class Background {
     public void setSpeedX(int speedX) {
         this.speedX = speedX;
     }
-    
-    
 
 }

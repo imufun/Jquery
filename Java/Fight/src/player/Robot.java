@@ -2,6 +2,8 @@ package player;
 
 import fight.Background;
 import fight.Fight;
+import fight.ProjectTile;
+import java.util.ArrayList;
 
 public class Robot {
 
@@ -21,8 +23,10 @@ public class Robot {
     public int SpeedX = 0;
     public int SpeedY = 1;
 
-    private static Background bg1 = Fight.getBg1();
-    private static Background bg2 = Fight.getBg2();
+    private Background bg1 = Fight.getBg1();
+    private Background bg2 = Fight.getBg2();
+
+    private ArrayList<ProjectTile> projectiles = new ArrayList<ProjectTile>();
 
     public void update() {
 
@@ -48,7 +52,7 @@ public class Robot {
         // Updates Y Position
         centerY += SpeedY;
         if (centerY + SpeedY >= GROUND) {
-            centerY += GROUND;
+            centerY = GROUND;
         }
 
         // Handles Jumping
@@ -75,7 +79,7 @@ public class Robot {
 
     public void MoveLeft() {
         if (ducked == false) {
-            SpeedX = MOVESPEED;
+            SpeedX = -MOVESPEED;
         }
     }
 
@@ -106,6 +110,15 @@ public class Robot {
             SpeedY = JUMPSPEED;
             Jumped = true;
         }
+    }
+
+    public void shoot() {
+        ProjectTile p = new ProjectTile(centerX + 50, centerY - 25);
+        projectiles.add(p);
+    }
+
+    public ArrayList<ProjectTile> getProjectiles() {
+        return projectiles;
     }
 
     public int getCenterX() {
@@ -162,22 +175,6 @@ public class Robot {
 
     public void setDucked(boolean ducked) {
         this.ducked = ducked;
-    }
-
-    public static Background getBg1() {
-        return bg1;
-    }
-
-    public static void setBg1(Background bg1) {
-        Robot.bg1 = bg1;
-    }
-
-    public static Background getBg2() {
-        return bg2;
-    }
-
-    public static void setBg2(Background bg2) {
-        Robot.bg2 = bg2;
     }
 
     public int getSpeedY() {
