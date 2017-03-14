@@ -19,7 +19,7 @@ import java.awt.event.KeyListener;
 public class KingFighter {
 
     public static void main(String[] args) {
-        Display display = new Display(800, 600, "!!!!");
+        Display display = new Display(800, 600, "Fight");
         StartingClass startingClass = new StartingClass();
         startingClass.init();
     }

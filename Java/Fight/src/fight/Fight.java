@@ -22,7 +22,7 @@ import java.net.URL;
 public class Fight extends Applet implements Runnable, KeyListener {
 
     private Robot robot;
-    private Image image, charecter, background, currentSprite, charecterDown, charecterJumped;
+    private Image image, currentSprite, charecter, charecterDown, charecterJumped, background;
     private Graphics second;
     private URL base;
 
@@ -121,9 +121,9 @@ public class Fight extends Applet implements Runnable, KeyListener {
     public void paint(Graphics g) {
 
         g.drawImage(background, bg1.getBgX(), bg1.getBgY(), this);
-        g.drawImage(background, bg2.getBgY(), bg1.getBgY(), this);
+        g.drawImage(background, bg2.getBgX(), bg2.getBgY(), this);
 
-        g.drawImage(charecter, robot.getCenterX() - 60, robot.getCenterY() - 63, this);
+        g.drawImage(currentSprite, robot.getCenterX() - 61, robot.getCenterY() - 63, this);
 
     }
 
@@ -137,7 +137,7 @@ public class Fight extends Applet implements Runnable, KeyListener {
 
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
-
+                robot.Jummp();
                 System.out.println("Move Up");
                 break;
             case KeyEvent.VK_DOWN:
@@ -145,9 +145,11 @@ public class Fight extends Applet implements Runnable, KeyListener {
                 if (robot.isJumped() == false) {
                     robot.setDucked(true);
                     robot.setSpeedX(0);
+
+                    System.out.println("Move Down");
                 }
-                System.out.println("Move Down");
                 break;
+
             case KeyEvent.VK_LEFT:
                 robot.MoveLeft();
                 robot.setMovingLeft(true);
