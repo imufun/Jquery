@@ -14,6 +14,7 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.net.URL;
+import java.util.ArrayList;
 import player.Heliboy;
 
 /**
@@ -99,6 +100,18 @@ public class Fight extends Applet implements Runnable, KeyListener {
             } else if (robot.isJumped() == false && robot.isDucked() == false) {
                 currentSprite = charecter;
             }
+
+            ArrayList projecttils = robot.getProjectiles();
+            for (int i = 0; i < projecttils.size(); i++) {
+                ProjectTile p = (ProjectTile) projecttils.get(i);
+                if (p.isVisible() == true) {
+                    p.update();
+                } else {
+                    projecttils.remove(i);
+                }
+                System.out.println("Bullet---------------> " + i);
+            }
+
             hb1.update();
             hb2.update();
             bg1.update();
@@ -141,6 +154,15 @@ public class Fight extends Applet implements Runnable, KeyListener {
         //player position 
         g.drawImage(currentSprite, robot.getCenterX() - 61, robot.getCenterY() - 63, this);
 
+        ArrayList projecttils = robot.getProjectiles();
+        for (int i = 0; i < projecttils.size(); i++) {
+            ProjectTile p = (ProjectTile) projecttils.get(i);
+            g.setColor(Color.YELLOW);
+            g.fillRect(p.getX(), p.getY(), 10, 5);
+            
+             
+        }
+
     }
 
     @Override
@@ -154,6 +176,7 @@ public class Fight extends Applet implements Runnable, KeyListener {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
                 robot.Jummp();
+                robot.shoot();
                 System.out.println("Move Up");
                 break;
             case KeyEvent.VK_DOWN:
@@ -180,6 +203,12 @@ public class Fight extends Applet implements Runnable, KeyListener {
             case KeyEvent.VK_SPACE:
                 robot.Jummp();
                 System.out.println("Jump");
+                break;
+
+            case KeyEvent.VK_CONTROL:
+                if (robot.isDucked() == false && robot.isJumped() == false) {
+                    robot.shoot();
+                }
                 break;
         }
     }

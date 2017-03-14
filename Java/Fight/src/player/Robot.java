@@ -2,6 +2,8 @@ package player;
 
 import fight.Background;
 import fight.Fight;
+import fight.ProjectTile;
+import java.util.ArrayList;
 
 public class Robot {
 
@@ -23,6 +25,8 @@ public class Robot {
 
     private Background bg1 = Fight.getBg1();
     private Background bg2 = Fight.getBg2();
+
+    private ArrayList<ProjectTile> projectiles = new ArrayList<ProjectTile>();
 
     public void update() {
 
@@ -106,6 +110,15 @@ public class Robot {
             SpeedY = JUMPSPEED;
             Jumped = true;
         }
+    }
+
+    public void shoot() {
+        ProjectTile p = new ProjectTile(centerX + 50, centerY - 25);
+        projectiles.add(p);
+    }
+
+    public ArrayList<ProjectTile> getProjectiles() {
+        return projectiles;
     }
 
     public int getCenterX() {
