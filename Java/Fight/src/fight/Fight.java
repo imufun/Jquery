@@ -16,6 +16,7 @@ import java.awt.event.KeyListener;
 import java.net.URL;
 import java.util.ArrayList;
 import player.Heliboy;
+import unit2.Tile;
 
 /**
  *
@@ -31,6 +32,9 @@ public class Fight extends Applet implements Runnable, KeyListener {
     private Heliboy hb1, hb2;
     private Animation anim, hanim;
     private static Background bg1, bg2;
+    public static Image tiledirt, tileocean;
+
+    private ArrayList<Tile> tilearray = new ArrayList<Tile>();
 
     @Override
     public void init() {
@@ -67,6 +71,9 @@ public class Fight extends Applet implements Runnable, KeyListener {
 
         background = getImage(base, "../data/background.png");
 
+        tiledirt = getImage(base, "../data/tiledirt.png");
+        tileocean = getImage(base, "../data/tileocean.png");
+
         anim = new Animation();
         anim.addFrame(charecter, 1250);
         anim.addFrame(charecter2, 50);
@@ -95,6 +102,20 @@ public class Fight extends Applet implements Runnable, KeyListener {
         //set background 
         bg1 = new Background(0, 0);
         bg2 = new Background(2160, 0);
+
+        //Tile added
+        for (int i = 0; i < 200; i++) {
+            for (int j = 0; j < 12; j++) {
+                if (j == 11) {
+                    Tile tile = new Tile(i, j, 2);
+                    tilearray.add(tile);
+                }
+                if (j == 10) {
+                    Tile tile = new Tile(i, j, 1);
+                    tilearray.add(tile);
+                }
+            }
+        }
 
         //set Enemy-> Heliboy image & position
         hb1 = new Heliboy(340, 60);
@@ -176,6 +197,7 @@ public class Fight extends Applet implements Runnable, KeyListener {
         //background position move with player 
         g.drawImage(background, bg1.getBgX(), bg1.getBgY(), this);
         g.drawImage(background, bg2.getBgX(), bg2.getBgY(), this);
+        PaintTiles(g);
 
         g.drawImage(hanim.getImage(), hb1.getCenterX() - 48, hb1.getCenterY() - 48, this);
         g.drawImage(hanim.getImage(), hb2.getCenterX() - 48, hb2.getCenterY() - 48, this);
@@ -192,6 +214,20 @@ public class Fight extends Applet implements Runnable, KeyListener {
 
     }
 
+    private void updatetile() {
+        for (int i = 0; i < tilearray.size(); i++) {
+            Tile t = (Tile) tilearray.get(i);
+            t.update();
+        }
+    }
+
+    private void PaintTiles(Graphics g) {
+        for (int i = 0; i < tilearray.size(); i++) {
+            Tile t = (Tile) tilearray.get(i);
+            g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY(), this);
+        }
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -203,7 +239,6 @@ public class Fight extends Applet implements Runnable, KeyListener {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
                 robot.Jummp();
-                robot.shoot();
                 System.out.println("Move Up");
                 break;
             case KeyEvent.VK_DOWN:
