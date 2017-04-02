@@ -1,4 +1,4 @@
-package entity.statics;
+package entity.sattics;
 
 import fighter98.gfx.Assets;
 import java.awt.Graphics;

@@ -16,10 +16,16 @@ public class Tile {
         tileY = y * 40;
         type = typeIng;
 
-        if (type == 1) {
-            TileImage = Fight.tileocean;
-        } else if (type == 2) {
+        if (type == 5) {
             TileImage = Fight.tiledirt;
+        } else if (type == 8) {
+            TileImage = Fight.tilegrassTop;
+        } else if (type == 4) {
+            TileImage = Fight.tilegrassLeft;
+        } else if (type == 6) {
+            TileImage = Fight.tilegrassRight;
+        } else if (type == 2) {
+            TileImage = Fight.tilegrassBot;
         }
     }
 
@@ -33,8 +39,8 @@ public class Tile {
         } else {
             speedX = bg.getSpeedX() * 5;
         }
-        
-        tileX +=speedX;
+
+        tileX += speedX;
     }
 
     public int getTileX() {

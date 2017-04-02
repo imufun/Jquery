@@ -13,6 +13,9 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import player.Heliboy;
@@ -25,6 +28,7 @@ import unit2.Tile;
 public class Fight extends Applet implements Runnable, KeyListener {
 
     private Image image, currentSprite, charecter, charecter2, charecter3, charecterDown, charecterJumped, background, heliboy, heliboy2, heliboy3, heliboy4, heliboy5;
+    
     private Graphics second;
     private URL base;
 
@@ -32,7 +36,9 @@ public class Fight extends Applet implements Runnable, KeyListener {
     private Heliboy hb1, hb2;
     private Animation anim, hanim;
     private static Background bg1, bg2;
-    public static Image tiledirt, tileocean;
+    //public static Image tiledirt, tileocean;
+    public static Image tilegrassTop, tilegrassBot, tilegrassLeft, tilegrassRight, tiledirt;
+
 
     private ArrayList<Tile> tilearray = new ArrayList<Tile>();
 
@@ -71,8 +77,14 @@ public class Fight extends Applet implements Runnable, KeyListener {
 
         background = getImage(base, "../data/background.png");
 
+        //tiledirt = getImage(base, "../data/tiledirt.png");
+        //tileocean = getImage(base, "../data/tileocean.png");
+        
         tiledirt = getImage(base, "../data/tiledirt.png");
-        tileocean = getImage(base, "../data/tileocean.png");
+        tilegrassTop = getImage(base, "../data/tilegrasstop.png");
+        tilegrassBot = getImage(base, "../data/tilegrassbot.png");
+        tilegrassLeft = getImage(base, "../data/tilegrassleft.png");
+        tilegrassRight = getImage(base, "../data/tilegrassright.png");
 
         anim = new Animation();
         anim.addFrame(charecter, 1250);
@@ -116,9 +128,16 @@ public class Fight extends Applet implements Runnable, KeyListener {
                 }
             }
         }
+        
+        
+        //initalize Tiles
+        try {
+            loadMap("../data/map1.txt");
+        } catch (Exception e) {
+        }
 
         //set Enemy-> Heliboy image & position
-        hb1 = new Heliboy(340, 60);
+        hb1 = new Heliboy(340, 120);
         hb2 = new Heliboy(700, 360);
 
         //set robot images
@@ -317,4 +336,38 @@ public class Fight extends Applet implements Runnable, KeyListener {
         anim.update(10);
         hanim.update(50);
     }
+    
+   
+    //Map added;
+    private void loadMap(String datamap1txt)throws IOException {
+         ArrayList lines = new ArrayList();
+         int width = 0;
+         int height = 0;
+          
+         BufferedReader bufferReader = new BufferedReader(new FileReader(datamap1txt));
+         while(true){
+             String line = bufferReader.readLine();
+             if (line==null) {
+                 bufferReader.close();
+                 break;
+             }
+             
+             if (!line.startsWith("!")) {
+                 lines.add(line);
+                 width =Math.max(width, line.length());
+             }
+         }
+         height = lines.size();
+         for (int j = 0; j < 12; j++) {
+            String line = (String)lines.get(j);
+             for (int i = 0; i < width; i++) {
+                 System.out.println(i + "is i");
+                 if (i<line.length()) {
+                     char ch = line.charAt(i);
+                     Tile t = new Tile(i, j, Character.getNumericValue(ch));
+                     tilearray.add(t);
+                 }
+             }
+        }
+    }  
 }

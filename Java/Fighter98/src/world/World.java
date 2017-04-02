@@ -7,7 +7,7 @@ import java.awt.Graphics;
 import tilegame.Handler;
 import tilegame.Tile;
 import entity.sattics.Tree;
-import entity.statics.Rock;
+import entity.sattics.Rock;
 
 public class World {
 

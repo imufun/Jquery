@@ -19,6 +19,8 @@ public class Enemy {
 
     //die
     private void die() {
+        
+        
     }
 
     private void attack() {
