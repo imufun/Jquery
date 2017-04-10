@@ -1,6 +1,6 @@
-$primary-color: red;
-$hader-color: #ccc;
-$link-color: #1b6d85;
+@import "theme.scss";
+
+$font-family:sans-serif;
 
 h1 {
   color: $primary-color;
@@ -29,4 +29,20 @@ h1 {
   a:hover{
     color: $hader-color ;
   }
+}
+
+.spanlist{
+    ul{
+      margin: 0;padding: 0;
+      li{
+        list-style: none;
+        a{
+          color: $primary-color;
+
+        }
+
+        a:hover{color: $link-color}
+      }
+
+    }
 }

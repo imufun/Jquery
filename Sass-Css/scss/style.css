@@ -17,4 +17,14 @@ h1 {
 .spanleft a:hover {
   color: #ccc; }
 
+.spanlist ul {
+  margin: 0;
+  padding: 0; }
+  .spanlist ul li {
+    list-style: none; }
+    .spanlist ul li a {
+      color: red; }
+    .spanlist ul li a:hover {
+      color: #1b6d85; }
+
 /*# sourceMappingURL=style.css.map */
