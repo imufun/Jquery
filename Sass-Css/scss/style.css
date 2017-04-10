@@ -1,3 +1,6 @@
+body {
+  background: #f9f9f9; }
+
 h1 {
   color: red; }
 
@@ -17,14 +20,23 @@ h1 {
 .spanleft a:hover {
   color: #ccc; }
 
-.spanlist ul {
-  margin: 0;
-  padding: 0; }
-  .spanlist ul li {
-    list-style: none; }
-    .spanlist ul li a {
-      color: red; }
-    .spanlist ul li a:hover {
-      color: #1b6d85; }
+.spanlist {
+  background: #ccc;
+  border: 1px solid #1b6d85; }
+  .spanlist ul {
+    margin: 0;
+    padding: 0; }
+    .spanlist ul li {
+      list-style: none; }
+      .spanlist ul li a {
+        color: red; }
+      .spanlist ul li a:hover {
+        color: #1b6d85; }
+
+.thumbnail {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  border-radius: 20px; }
 
 /*# sourceMappingURL=style.css.map */
