@@ -1,0 +1,32 @@
+$primary-color: red;
+$hader-color: #ccc;
+$link-color: #1b6d85;
+
+h1 {
+  color: $primary-color;
+}
+
+.navbar-inverse {
+  background: $hader-color
+}
+
+.spanleft {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+
+  }
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+    font-size: 16px;
+    color: $link-color;
+  }
+  a:hover{
+    color: $hader-color ;
+  }
+}

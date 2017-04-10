@@ -1,0 +1,20 @@
+h1 {
+  color: red; }
+
+.navbar-inverse {
+  background: #ccc; }
+
+.spanleft ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+.spanleft a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #1b6d85; }
+.spanleft a:hover {
+  color: #ccc; }
+
+/*# sourceMappingURL=style.css.map */
