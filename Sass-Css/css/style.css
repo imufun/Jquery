@@ -1,6 +1,10 @@
 body {
   background: #f9f9f9; }
 
+h2 {
+  padding: 25px;
+  margin: 0px; }
+
 h1 {
   color: red; }
 

@@ -95,14 +95,14 @@ public class Fight extends Applet implements Runnable, KeyListener {
         hanim = new Animation();
 
         hanim.addFrame(heliboy, 100);
-        hanim.addFrame(heliboy2, 100);
-        hanim.addFrame(heliboy3, 100);
-        hanim.addFrame(heliboy4, 100);
-        hanim.addFrame(heliboy5, 100);
-        hanim.addFrame(heliboy2, 100);
-        hanim.addFrame(heliboy3, 100);
-        hanim.addFrame(heliboy5, 100);
-        hanim.addFrame(heliboy3, 100);
+        hanim.addFrame(heliboy2, 200);
+        hanim.addFrame(heliboy3, 150);
+        hanim.addFrame(heliboy4, 400);
+        hanim.addFrame(heliboy5, 520);
+        hanim.addFrame(heliboy2, 270);
+        hanim.addFrame(heliboy3, 340);
+        hanim.addFrame(heliboy5, 800);
+        hanim.addFrame(heliboy3, 700);
 
         currentSprite = anim.getImage();
 
