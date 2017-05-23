@@ -95,14 +95,14 @@ public class Fight extends Applet implements Runnable, KeyListener {
         hanim = new Animation();
 
         hanim.addFrame(heliboy, 100);
-        hanim.addFrame(heliboy2, 100);
-        hanim.addFrame(heliboy3, 100);
-        hanim.addFrame(heliboy4, 100);
-        hanim.addFrame(heliboy5, 100);
-        hanim.addFrame(heliboy2, 100);
-        hanim.addFrame(heliboy3, 100);
-        hanim.addFrame(heliboy5, 100);
-        hanim.addFrame(heliboy3, 100);
+        hanim.addFrame(heliboy2, 200);
+        hanim.addFrame(heliboy3, 150);
+        hanim.addFrame(heliboy4, 400);
+        hanim.addFrame(heliboy5, 520);
+        hanim.addFrame(heliboy2, 270);
+        hanim.addFrame(heliboy3, 340);
+        hanim.addFrame(heliboy5, 800);
+        hanim.addFrame(heliboy3, 700);
 
         currentSprite = anim.getImage();
 
@@ -114,28 +114,14 @@ public class Fight extends Applet implements Runnable, KeyListener {
         //set background 
         bg1 = new Background(0, 0);
         bg2 = new Background(2160, 0);
-
-        //Tile added
-        for (int i = 0; i < 200; i++) {
-            for (int j = 0; j < 12; j++) {
-                if (j == 11) {
-                    Tile tile = new Tile(i, j, 2);
-                    tilearray.add(tile);
-                }
-                if (j == 10) {
-                    Tile tile = new Tile(i, j, 1);
-                    tilearray.add(tile);
-                }
-            }
-        }
-        
         
         //initalize Tiles
         try {
-            loadMap("../data/map1.txt");
+            loadMap("data/map1.txt"); 
+            //System.out.println("");
         } catch (Exception e) {
         }
-
+ 
         //set Enemy-> Heliboy image & position
         hb1 = new Heliboy(340, 120);
         hb2 = new Heliboy(700, 360);
@@ -193,6 +179,38 @@ public class Fight extends Applet implements Runnable, KeyListener {
         }
     }
 
+    //Map added;
+    private void loadMap(String datamap1txt)throws IOException {
+         ArrayList lines = new ArrayList();
+         int width = 0;
+         int height = 0;
+          
+         BufferedReader bufferReader = new BufferedReader(new FileReader(datamap1txt));
+         while(true){
+             String line = bufferReader.readLine();
+             if (line==null) {
+                 bufferReader.close();
+                 break;
+             }
+             
+             if (!line.startsWith("!")) {
+                 lines.add(line);
+                 width =Math.max(width, line.length());
+             }
+         }
+         height = lines.size();
+         for (int j = 0; j < 12; j++) {
+            String line = (String)lines.get(j);
+             for (int i = 0; i < width; i++) {
+                 System.out.println(i + "is i");
+                 if (i<line.length()) {
+                     char ch = line.charAt(i);
+                     Tile t = new Tile(i, j, Character.getNumericValue(ch));
+                     tilearray.add(t);
+                 }
+             }
+        }
+    } 
     //update method
     @Override
     public void update(Graphics g) {
@@ -337,37 +355,5 @@ public class Fight extends Applet implements Runnable, KeyListener {
         hanim.update(50);
     }
     
-   
-    //Map added;
-    private void loadMap(String datamap1txt)throws IOException {
-         ArrayList lines = new ArrayList();
-         int width = 0;
-         int height = 0;
-          
-         BufferedReader bufferReader = new BufferedReader(new FileReader(datamap1txt));
-         while(true){
-             String line = bufferReader.readLine();
-             if (line==null) {
-                 bufferReader.close();
-                 break;
-             }
-             
-             if (!line.startsWith("!")) {
-                 lines.add(line);
-                 width =Math.max(width, line.length());
-             }
-         }
-         height = lines.size();
-         for (int j = 0; j < 12; j++) {
-            String line = (String)lines.get(j);
-             for (int i = 0; i < width; i++) {
-                 System.out.println(i + "is i");
-                 if (i<line.length()) {
-                     char ch = line.charAt(i);
-                     Tile t = new Tile(i, j, Character.getNumericValue(ch));
-                     tilearray.add(t);
-                 }
-             }
-        }
-    }  
+    
 }
