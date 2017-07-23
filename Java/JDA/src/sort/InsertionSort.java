@@ -28,6 +28,7 @@ public class InsertionSort {
             System.out.print(arry[i] + " ");
         }
         System.out.println();
+
     }
 
     public static void Short(int[] arry) {
@@ -35,17 +36,12 @@ public class InsertionSort {
         int n = arry.length;
         for (int i = 0; i < n; i++) {
             int key = arry[i];
-            //System.out.println(key);
-            //int j = arry[i] - 1;
             int j = i - 1;
-            //System.out.println(j);
-
             while ((j > -1) && (arry[j] > key)) {
                 arry[j + 1] = arry[j];
                 j--;
             }
             arry[j + 1] = key;
-            // System.out.println(" " );
         }
 
     }
