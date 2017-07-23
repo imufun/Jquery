@@ -37,9 +37,10 @@ public class InsertionSort {
         for (int i = 0; i < n; i++) {
             int key = arry[i];
             int j = i - 1;
+ 
             while ((j > -1) && (arry[j] > key)) {
                 arry[j + 1] = arry[j];
-                j--;
+                j--; 
             }
             arry[j + 1] = key;
         }
