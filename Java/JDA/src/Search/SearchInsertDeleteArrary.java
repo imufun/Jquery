@@ -15,7 +15,7 @@ public class SearchInsertDeleteArrary {
         arrInsert[4] = 9;
 
         //useing last element as search element
-        int key = 8;
+        int key = 5;
         int position = findElement(arr, n, key);
         if (position == -1) {
             System.out.println("Element not found ");
@@ -29,7 +29,7 @@ public class SearchInsertDeleteArrary {
         //insert with sort
         int capacity = 30;
         int nn=6;
-        int i, keyy = 100;
+        int i, keyy = 50;
 
         System.out.print("Before Insertion: ");
         for ( i = 0; i < nn; i++) {
@@ -63,4 +63,8 @@ public class SearchInsertDeleteArrary {
         arr[n] = key;
         return (n + 1);
     }
+    
+    //Delete Operation
+    
+    //static int delete
 }
