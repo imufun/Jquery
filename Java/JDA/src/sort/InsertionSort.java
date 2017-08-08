@@ -41,8 +41,8 @@ public class InsertionSort {
             int j = i - 1;
             System.out.println(" print j = " + j + ", i = " + i);
             while ((j > -1) && (arry[j] > key)) {
-                System.out.println(" j is grater then " + j + " ---------------\n");
-                System.out.println(" Array j " + arry[j]);
+                System.out.println(" j is grater then " + j + " ---------------\n");//
+                //System.out.println(" Array j " + arry[j] + " //" + arry[j] + " key == " + key);
                 arry[j + 1] = arry[j];
                 System.out.println(" print array " + arry[j]);
                 j--;
