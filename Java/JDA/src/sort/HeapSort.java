@@ -1,5 +1,5 @@
+package sort;
 
-import java.util.*;
 
 public class HeapSort {
 
@@ -8,7 +8,7 @@ public class HeapSort {
         int arr[] = {12, 11, 13, 5, 6, 7};
         int n = arr.length;
         HeapSort h = new HeapSort();
-        h.heap(arr);
+        h.HeapBuild(arr);
         System.out.print(" Sorted array is ");
         printArray(arr);
 
@@ -59,6 +59,4 @@ public class HeapSort {
         }
     }
 
-   
-     
 }
