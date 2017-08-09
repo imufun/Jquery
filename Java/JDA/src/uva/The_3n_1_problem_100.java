@@ -25,6 +25,16 @@ public class The_3n_1_problem_100 {
         for (int i = 0; i < n; i++) {
             r[i] = input.nextInt();
 
+            if (r[i] % 2 == 1) {
+
+                n = (3 * n) + 1;
+                //System.out.println(" odd");
+                System.out.println(" " + n);
+            } else {
+                n = n % 2;
+                System.out.println(" " + n);
+            }
+
         }
 
 //        if (n == 1) {
