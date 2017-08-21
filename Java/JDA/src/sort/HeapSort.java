@@ -1,6 +1,5 @@
 package sort;
 
-
 public class HeapSort {
 
     public static void main(String[] args) {
@@ -51,10 +50,10 @@ public class HeapSort {
             largest = right;
         }
 
-        if (largest != i) {
-            int swap = arr[i];
-            arr[i] = arr[largest];
-            arr[largest] = swap;
+        if (largest != i) { 
+            int swap = arr[i]; 
+            arr[i] = arr[largest]; 
+            arr[largest] = swap; 
             heap(arr, n, largest);
         }
     }

@@ -59,7 +59,7 @@ function deleteBookmarks(url){
 
      bookmarksResult.innerHTML +='<div class="col-md-3">' +
                                     '<div class="inner-contenr text-center">'+
-                                        '<h3>' +name+ '</h3>' +
+                                        '<h4>' +name+ '</h4>' +
                                         '<a href="'+url+'" class="btn btn-info" target="_blank">Visit</a>'+
                                         // '<a onclick="deleteBookmarks(\''+url+'\')" href="#" class="btn btn-danger">Delete</a>'+
                                     '</div>'+
