@@ -42,8 +42,7 @@ function deleteBookmarks(url){
    }
    //fetchBookmarks();
   localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-  fetchBookmarks();
-  return false
+  fetchBookmarks(); 
 }
 
 
@@ -62,7 +61,7 @@ function deleteBookmarks(url){
                                     '<div class="inner-contenr text-center">'+
                                         '<h3>' +name+ '</h3>' +
                                         '<a href="'+url+'" class="btn btn-info" target="_blank">Visit</a>'+
-                                        '<a onclick="deleteBookmarks(\''+url+'\')" href="#" class="btn btn-danger">Delete</a>'+
+                                        // '<a onclick="deleteBookmarks(\''+url+'\')" href="#" class="btn btn-danger">Delete</a>'+
                                     '</div>'+
                                  '</div>';
    }
