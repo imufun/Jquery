@@ -43,6 +43,7 @@ function deleteBookmarks(url){
    //fetchBookmarks();
   localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   fetchBookmarks();
+  return false
 }
 
 
