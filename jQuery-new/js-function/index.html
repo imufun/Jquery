@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+ 
+  </head>
+  <body> 
+
+    <p id = "ShowFunction"></p>
+    <p id="functionConstructor"></p>
+
+
+    <script>      
+        var x = myFunction(4,10);
+        document.getElementById("ShowFunction").innerHTML = x;
+    
+        function myFunction(a, b){
+            return a * b;        
+        }
+
+
+        //function constructor
+        var myFunc = new Function("a", "b", "return a  * b");
+        
+
+       </script> 
+</body>
+</html>

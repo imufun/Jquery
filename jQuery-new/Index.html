@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body> 
+
+
+    <div class="container">
+        <div class="row justify-content-md-center py-5"> 
+            <form action="">
+                <div class="form-inline">
+                    <div class="col-8">
+                        <input type="text" name="" class="form-control add-input" placeholder="Name"> 
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-primary" type="button" id="addButon">Add</button>
+                    </div>
+                </div>
+            </form> 
+        </div>
+        
+        <div class="list"></div>
+    </div>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ 
+    <script>
+        
+
+        $( document ).ready(function() {
+            $("#addButon").on('click', function(){
+                var addItem = $('.add-input').val()
+                if(addItem){
+                        $('.list').append(' <div class="alert-success animation col mb-3 clearfix p-3"> ' +
+                        '<span class="item">' + addItem + '</span>' + 
+                                '<div class="item-remove btn btn-danger float-right ml-2"> Remove</div>' +     
+                        '<div class="edit-item btn btn-success float-right"> Edit</div>' + 
+                                        
+                        '</div>');
+                            
+
+
+                }else{
+                    alert('Please input something');
+                }
+
+                $('.item-remove').on('click', function(){
+                    $(this).parent().remove()
+                    console.log('iii')
+                })
+
+                $('.edit-item').on('click', function(){
+
+                 var removeItem =  $(this).parent().find('.item').addClass('d-none')
+
+                //  if (removeItem){
+                //      alert("all ready removed")
+                //  }
+                  console.log( $(this).parent().find('.item').addClass('d-none'))
+                 var i = 1
+                  
+                  var inputItem = $(this).parent().append('<input type="text" name="" class="form-control float-lft col-8" placeholder="Name">')
+
+                    console.log('edittttttttttttt')
+                })
+               console.log('iii', $(this) ,addItem);
+            })
+
+
+            function itemList(){
+                var item = $('.item');
+
+            }
+        });
+    </script>
+</body>
+</html>
