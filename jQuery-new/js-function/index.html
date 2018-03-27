@@ -16,6 +16,12 @@
 
     <p id="demo1"></p>
     <button onclick="myUndefine()">Try it</button>
+
+
+    <p id="maxvalue"></p>
+
+
+
     <script>      
         var x = myFunction(4,10);
         document.getElementById("ShowFunction").innerHTML = x;
@@ -49,6 +55,23 @@
           document.getElementById("demo1").innerHTML = tx;  
         }
     
+    // find the max value
+      //  x = findMax (1,1,0,5,10,6,7);
+
+        function findMax(){
+          var i = 0;
+          var max = -Infinity
+
+          for(i = 0; i<arguments.length; i++){
+            if(arguments[i]> max){
+              max = arguments[i]
+            }
+          }
+          return max;
+        }
+
+        document.getElementById("maxvalue").innerHTML = findMax(10,100,0,55,30);
+
        </script> 
 </body>
 </html>
