@@ -38,6 +38,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/marge.js"></script>
  
     <script>
         
@@ -74,7 +75,9 @@
                   console.log( $(this).parent().find('.item').addClass('d-none'))
                  var i = 1
                   
-                  var inputItem = $(this).parent().append('<input type="text" name="" class="form-control float-lft col-8" placeholder="Name">')
+                  var inputItem = $(this).parent().html('<input type="text" name="" class="form-control float-lft col-8" placeholder="Name">')
+				  
+			 
 
                     console.log('edittttttttttttt')
                 })
