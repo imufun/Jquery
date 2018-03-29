@@ -14,6 +14,13 @@
     <p id = "ShowFunction"></p>
     <p id="functionConstructor"></p>
 
+    <p id="demo1"></p>
+    <button onclick="myUndefine()">Try it</button>
+
+
+    <p id="maxvalue"></p>
+
+
 
     <script>      
         var x = myFunction(4,10);
@@ -26,7 +33,44 @@
 
         //function constructor
         var myFunc = new Function("a", "b", "return a  * b");
-        
+
+
+        //undefine
+        function myUndefine(){
+          var t1 = "var"
+          var t2 ;
+
+          if(t1 === undefined){
+            text1 =  "t1 is undefine"
+          } else {
+            text1 =  "t1 is define"
+          }
+
+          if (t2 === undefined){
+            text2 =  "t2 is undefine"
+          } else {
+            text2 =  "t2 is define"
+          }
+          tx = text1 + "</br>" + text2;
+          document.getElementById("demo1").innerHTML = tx;  
+        }
+    
+    // find the max value
+      //  x = findMax (1,1,0,5,10,6,7);
+
+        function findMax(){
+          var i = 0;
+          var max = -Infinity
+
+          for(i = 0; i<arguments.length; i++){
+            if(arguments[i]> max){
+              max = arguments[i]
+            }
+          }
+          return max;
+        }
+
+        document.getElementById("maxvalue").innerHTML = findMax(10,100,0,55,30);
 
        </script> 
 </body>
