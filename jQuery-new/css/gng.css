@@ -9395,6 +9395,7 @@
       z-index: 999;
       transition: all 0.5s; }
       .navbar-light.scrollUp {
+          
         visibility: hidden;
         opacity: 1;
         -ms-transform: translateY(-80px);
@@ -9547,8 +9548,8 @@
   .mobile-search {
     position: fixed;
     top: 59px;
-    z-index: 100;
-    transition: top 0.5s linear; }
+    z-index: 100; 
+    transition: top 1s linear; }
   
   input {
     box-shadow: 0;
