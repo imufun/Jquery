@@ -40,15 +40,17 @@
            range: true, 
            min: 0, 
            max: 10000, 
-           values: [20, 30],
+           values: [20, 1000],
             slide: function (event, ui) {
-                 outputSpan.html(ui.values[0] + ' - ' + ui.values[1] + ' Years'); },
-                  stop: function (event, ui) { 
-                      $('#txtMinAge').val(ui.values[0]);
-                   $('#txtMaxAge').val(ui.values[1]); } });
-                    outputSpan.html(sliderDiv.slider('values', 0) + ' - ' + sliderDiv.slider('values', 1) + ' Years');
-                     $('#txtMinAge').val(sliderDiv.slider('values', 0));
-                      $('#txtMaxAge').val(sliderDiv.slider('values', 1));
+              
+                  $('#txtMinAge').val(ui.values[0]);
+                   $('#txtMaxAge').val(ui.values[1]); 
+                 },
+        
+           });
+            outputSpan.html(sliderDiv.slider('values', 0) + ' - ' + sliderDiv.slider('values', 1) + ' Years');
+                $('#txtMinAge').val(sliderDiv.slider('values', 0));
+                $('#txtMaxAge').val(sliderDiv.slider('values', 1));
 });
     </script>
 </body>
