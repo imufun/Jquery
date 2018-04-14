@@ -40,7 +40,7 @@
            range: true, 
            min: 0, 
            max: 10000, 
-           values: [20, 1000],
+           values: [20, 7000],
             slide: function (event, ui) {
               
                   $('#txtMinAge').val(ui.values[0]);
@@ -48,9 +48,9 @@
                  },
         
            });
-            outputSpan.html(sliderDiv.slider('values', 0) + ' - ' + sliderDiv.slider('values', 1) + ' Years');
-                $('#txtMinAge').val(sliderDiv.slider('values', 0));
-                $('#txtMaxAge').val(sliderDiv.slider('values', 1));
+            // outputSpan.html(sliderDiv.slider('values', 0) + ' - ' + sliderDiv.slider('values', 1) + ' Years');
+            //     $('#txtMinAge').val(sliderDiv.slider('values', 0));
+            //     $('#txtMaxAge').val(sliderDiv.slider('values', 1));
 });
     </script>
 </body>
