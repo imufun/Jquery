@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <meta charset="utf-8" />
+        <title>Gadget & Gear</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link class="main-stylesheet" href="css/gng.css" rel="stylesheet" type="text/css" />
+        <link href="//fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+    <body>
+        <header>
+            <div class="container-fluid  navbar-light bg-gng px-lg-0">
+                <div class="top-header-nav">
+                    <ul class="nav nav-mega-menu justify-content-center bg-gradient d-lg-flex">
+                        <li class='nav-item  hover-cart position-relative'>
+                            <a href='/category/phone' class='nav-link white-text text-uppercase'>Phones and Tablets</a>
+                            <div  class='megamenu'>
+                                <ul class='list-unstyled nav flex-column box-a-shadow'>
+                                    <li class=''><a href='/category/apple'>Apple</a></li>
+                                    <li class=''><a href='/category/samsung'>Samsung</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="/promotions" class="nav-link white-text text-uppercase">Promotions</a></li>
+                        <li class="nav-item hover-cart position-relative">
+                            <a href="/brands" class="nav-link white-text text-uppercase">Brands</a>
+                            <div class="brand-menu bg-light-grey d-none d-lg-block p-3">
+                                <ul class="row ">
+                                    <div class="col p-3 mb-4">
+                                        <li class="row mx-0">
+                                            <div class="col-6 mb-1">
+                                                <a href="/brand/asdasdasd">
+                                                
+                                                </a>
+                                            </div>
+                                            <div class="col-6 mb-1">
+                                                <a href="/brand/apple">
+                                                
+                                                </a>
+                                            </div>
+                                            <div class="col">
+                                                <a href="/brands" class="text-center text-center d-block base-text text-bold text-m"> All Brands</a>
+                                            </div>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="/shop-address" class="nav-link white-text text-uppercase">Shop Address</a></li>
+                        <li class="nav-item"><a href="/online-exclusive" class="nav-link white-text text-uppercase">Online Exclusive</a></li>
+                    </ul>
+                </div>
+                <div class="container">
+                    <ul class="navbar navbar-expand-lg p-0">
+                        <div class="hamburger white-text text-m d-block d-lg-none pointer" id="leftMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <a class="navbar-brand mx-auto ml-lg-auto" href="/home"> <img src="/img/gng.5e6daf66.svg" width="80" height="60"></a>
+                        <button class="navbar-toggler  border-0 white-text" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="icon-user"></i>
+                        <i class="icon-cart notification-bubble-wrapper">
+                        </i>
+                        </button>
+                        <div class="collapse navbar-collapse mb-4 mb-lg-0" id="navbarSupportedContent">
+                            <div class="col-lg-8 py-lg-0 d-none d-lg-block m-auto">
+                                <div class="input-group">
+                                    <input type="text" class="form-control border-0 border-radius-input rounded-right top-search-input" placeholder="Search for Products, Brands and More ..." aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                    <div class="">
+                                        <button class="btn btn-outline-success my-sm-0 border-0 btn-gng-fill border-radius-input rounded-left top-search-input" type="submit"><i class="icon-search text-m"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="nav flex-column flex-lg-row user-account">
+                                <!-- For Desktop -->
+                                <li class="nav-item pr-lg-3 hover-account-menu position-relative d-none d-lg-block">
+                                    <a class="nav-link white-text text-sem-m p-0 text-lh-m d-block d-none d-lg-block" href="/dashboard"><i class="icon-user mr-2"></i>My Account</a>
+                                    <div class="auth-hover bg-light-grey d-none d-lg-block p-3">
+                                        <nav class="nav flex-column py-3">
+                                <li class="mb-3"><a class="nav-link btn btn-gng-fill d-inline-block w-100" href="#" id="clickSignInModal" data-toggle="modal" data-target="#authModal">Sign In</a></li>
+                                <li class="mb-3 text-sem-m">Don't have an account? <a class="base-text text-bold border border-dark border-left-0 border-right-0 border-top-0 pb-1 ml-2" href="#" id="clickSignUpModal" data-toggle="modal" data-target="#authModal">Sign up</a></li>
+                                </nav>
+                                </div>
+                                </li>
+                                <!-- For Mobile: -->
+                                <ul class="nav d-flex d-lg-none mb-2">
+                                    <li class="nav-item">
+                                        <a class="white-text nav-link text-uppercase pl-0 py-0 pr-3" href="#" id="clickSignInModal" data-toggle="modal" data-target="#authModal">
+                                        <i class="icon-user mr-2 link-text text-sem-m white-text "></i> Sign In
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="white-text nav-link text-uppercase p-0" href="#" id="clickSignUpModal" data-toggle="modal" data-target="#authModal">
+                                        <i class="icon-user mr-2 link-text text-sem-m white-text "></i>  Sign up
+                                        </a>
+                                    </li>
+                                </ul>
+                                <li class="nav-item hover-cart pl-lg-3">
+                                    <div class="notification-bubble-wrapper">
+                                        <i class="icon-cart link-text white-text d-lg-none text-sem-m mr-1"></i>
+                                        <a href="/cart" class="d-lg-none d-inline-block button-text-text">TK. 0.00</a>
+                                        <a class="nav-link white-text text-sem-m  p-0 d-none d-lg-inline-block white-text text-lh-m" href="#">
+                                        Cart <i class="icon-cart m-2 link-text white-text d-none d-lg-inline-block"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="container-fluid bg-light-white-grey mobile-search d-block d-lg-none ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 py-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control border border-radius-input rounded-right top-search-input" placeholder="Search for Products, Brands and More ..." aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                <button class="btn btn-outline-success my-sm-0 border-0 btn-gng-fill border-radius-input rounded-left top-search-input" type="submit">
+                                <i class="icon-search text-m"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Mobile search-->
+ 
+        <div class="page-container">
+            <div id="topSlider-1" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        
+                        <div class="carousel-caption d-none d-md-block">
+                            <a href="http://gadgetngear.com/" class="btn btn-gng-fill p-2 text-m text-uppercase px-lg-5 py-lg-3 mb-5 slider-one-1 d-inline-block position-absolute">PRE-ORDER</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        
+                        <div class="carousel-caption d-none d-md-block">
+                            <a href="http://gadgetngear.com/" class="btn btn-gng-fill p-2 text-m text-uppercase px-lg-5 py-lg-3 mb-5 slider-one-1 d-inline-block position-absolute">PRE-ORDER</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev ml-2" href="#topSlider-1" role="button" data-slide="prev">
+                <i class='icon-left-arrow text-l light-grey-btn-text'></i>
+                </a>
+                <a class="carousel-control-next mr-2" href="#topSlider-1" role="button" data-slide="next">
+                <i class='icon-right-arrow text-l light-grey-btn-text'></i>
+                </a>
+            </div>
+            <div id="topSlider-2" class="carousel slide mb-5" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                         
+                        <div class="carousel-caption carousel-cap2 d-none d-md-block">
+                            <a href="http://gadgetngear.com/" class="btn btn-gng-fill p-2 text-m text-uppercase px-lg-5 py-lg-3  mb-5 slider-one-2 d-inline-block position-absolute">shop now</a>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                         
+                        <div class="carousel-caption carousel-cap2 d-none d-md-block">
+                            <a href="http://gadgetngear.com/" class="btn btn-gng-fill p-2 text-m text-uppercase px-lg-5 py-lg-3  mb-5 slider-one-2 d-inline-block position-absolute">shop now</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev ml-2" href="#topSlider-2" role="button" data-slide="prev">
+                <i class='icon-left-arrow text-l light-grey-btn-text'></i>
+                </a>
+                <a class="carousel-control-next mr-2" href="#topSlider-2" role="button" data-slide="next">
+                <i class='icon-right-arrow text-l light-grey-btn-text'></i>
+                </a>
+            </div>
+            <div class="container-fluid">
+                <div class="row mb-5 pt-lg-5" id="top-selling-category">
+                    <div class="col text-center w-100 px-2 px-lg-3">
+                        <h1 class="text-uppercase d-block mb-4">top Selling</h1>
+                        <ul class="nav nav-pills mb-3 justify-content-center product-tab-list" id="pills-tab1" role="tablist">
+                            <li class="nav-item px-lg-3 px-2">
+                                <a id="selling-tab-all" class="nav-link active bg-transparent base-text  text-bold p-0 text-m"
+                                    data-toggle="pill" href="#top-selling-tab-all" role="tab"
+                                    aria-controls="pills-home" data-cat-id="all" data-is_loaded="1" aria-selected="true">All</a>
+                            </li>
+                            <li class="nav-item  px-lg-3 px-2">
+                                <a id="selling-tab-8" class="nav-link  bg-transparent base-text text-bold  p-0 text-m top-selling-category"
+                                    data-toggle="pill" href="#top-selling-tab-8" role="tab"
+                                    aria-controls="pills-home" data-cat-id="8" data-is_loaded="0" aria-selected="true">Phones and Tablets</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content px-4" id="pills-tabContent2">
+                            <div class="tab-pane fade show active" id="top-selling-tab-all" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <p class="text-right mb-0 mr-4 base-text text-m"><a class="text-center text-lg-right mb-3 mb-lg-0 d-block base-text" href="/top-sell-product">See all <i
+                                    class="icon-right-arrow light-grey-btn-text"></i></a></p>
+                                <div id="top-selling-product-item-container">
+                                    <div class="col-md-12">
+                                        <div class="loading-bar text-center " style="display: none;"><img class="mx-auto d-block" src="/img/loading.c98ea3eb.svg"></div>
+                                    </div>
+                                    <div id="" class="owl-carousel home-products-slider owl-theme">
+                                        <div class="item">
+                                            <ul class="list-unstyled">
+                                                <li class="product pb-lg-2">
+                                                    <a href="/product/iphone-8">
+                                                        <div class="product-image">
+                                                        
+                                                        </div>
+                                                        <div class="product-info pl-3">
+                                                            <div class="product-meta col-12 px-0">
+                                                                <p class="product-name mt-3 text-bold d-block mb-0">iPhone 8</p>
+                                                                <p class="product-price text-bold mb-0 ">
+                                                                    Tk. 111,500.00 - Tk. 92,000.00
+                                                                </p>
+                                                                <p class="mb-0">Apple</p>
+                                                            </div>
+                                                        </div>
+                                                        <span class="emi-price text-uppercase white-text px-2 py-1 position-absolute ">emi</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="item">
+                                            <ul class="list-unstyled">
+                                                <li class="product pb-lg-2">
+                                                    <a href="/product/apple-iphone-8-plus">
+                                                        <div class="product-image">
+                                                             
+                                                        </div>
+                                                        <div class="product-info pl-3">
+                                                            <div class="product-meta col-12 px-0">
+                                                                <p class="product-name mt-3 text-bold d-block mb-0">iPhone 8 Plus</p>
+                                                                <p class="product-price text-bold mb-0 ">
+                                                                    Tk. 105,000.00
+                                                                </p>
+                                                                <p class="mb-0">Apple</p>
+                                                            </div>
+                                                        </div>
+                                                        <span class="emi-price text-uppercase white-text px-2 py-1 position-absolute ">emi</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="item">
+                                            <ul class="list-unstyled">
+                                                <li class="product pb-lg-2">
+                                                    <a href="/product/galaxy-s9">
+                                                        <div class="product-image">
+                                                             
+                                                        </div>
+                                                        <div class="product-info pl-3">
+                                                            <div class="product-meta col-12 px-0">
+                                                                <p class="product-name mt-3 text-bold d-block mb-0">Galaxy S9+</p>
+                                                                <p class="product-price text-bold mb-0 ">
+                                                                    Tk. 105,900.00
+                                                                </p>
+                                                                <p class="mb-0">Samsung</p>
+                                                            </div>
+                                                        </div>
+                                                        <span class="emi-price text-uppercase white-text px-2 py-1 position-absolute ">emi</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="item">
+                                            <ul class="list-unstyled">
+                                                <li class="product pb-lg-2">
+                                                    <a href="/product/apple-iphone-x-64gb">
+                                                        <div class="product-image">
+                                                             
+                                                        </div>
+                                                        <div class="product-info pl-3">
+                                                            <div class="product-meta col-12 px-0">
+                                                                <p class="product-name mt-3 text-bold d-block mb-0">Apple iPhone X</p>
+                                                                <p class="product-price text-bold mb-0 ">
+                                                                    Tk. 130,990.00 - Tk. 150,500.00
+                                                                </p>
+                                                                <p class="mb-0">Apple</p>
+                                                            </div>
+                                                        </div>
+                                                        <span class="emi-price text-uppercase white-text px-2 py-1 position-absolute ">emi</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show" id="top-selling-tab-8" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <p class="text-right mb-0 mr-4 base-text text-m"><a class="text-right base-text" href="/top-sell-product?cat_id=8">See all <i
+                                    class="icon-right-arrow light-grey-btn-text"></i></a></p>
+                                <div id="top-selling-product-item-container">
+                                    <div class="col-md-12">
+                                        <div class="loading-bar text-center " style="display: none;"><img class="mx-auto d-block" src="/img/loading.c98ea3eb.svg"></div>
+                                    </div>
+                                    <div id="" class="owl-carousel home-products-slider owl-theme">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row mt-5 mb-5 pt-5">
+                    <div class="col text-center w-100 px-2 px-lg-3">
+                        <h1 class="text-uppercase d-block mb-4">New Arrivals</h1>
+                        <ul class="nav nav-pills mb-3 justify-content-center product-tab-list" id="pills-tab" role="tablist">
+                            <li class="nav-item px-lg-3 px-2">
+                                <a id="arrival-tab-all" class="nav-link active bg-transparent base-text text-bold p-0 text-m"
+                                    data-toggle="pill" href="#new-arrival-tab-all" role="tab"
+                                    aria-controls="pills-home" data-cat-id="all" data-is_loaded="1" aria-selected="true">All</a>
+                            </li>
+                            <li class="nav-item px-lg-3 px-2">
+                                <a id="arrival-tab-8" class="nav-link  bg-transparent base-text text-bold  p-0 text-m new-arrival-category"
+                                    data-toggle="pill" href="#new-arrival-tab-8" role="tab"
+                                    aria-controls="pills-home" data-cat-id="8" data-is_loaded="0" aria-selected="true">Phones and Tablets</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content px-4" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="new-arrival-tab-all" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <p class="text-right mb-0 mr-4 base-text text-m"><a class="text-center text-lg-right mb-3 mb-lg-0 d-block base-text" href="/new-arrival-product">See all  <i class="icon-right-arrow light-grey-btn-text"></i></a></p>
+                                <div id="new-arrival-product-item-container">
+                                    <div class="col-md-12">
+                                        <div class="loading-bar text-center " style="display: none;"><img class="mx-auto d-block"
+                                            src="/img/loading.c98ea3eb.svg">
+                                        </div>
+                                    </div>
+                                    <div id="" class="owl-carousel home-products-slider owl-theme">
+                                        <div class="item">
+                                            <ul class="list-unstyled">
+                                                <li class="product pb-lg-2">
+                                                    <a href="/product/iphone-8">
+                                                        <div class="product-image">
+                                                             
+                                                        </div>
+                                                        <div class="product-info pl-3">
+                                                            <div class="product-meta col-12 px-0">
+                                                                <p class="product-name mt-3 d-block mb-0">iPhone 8</p>
+                                                                <p class="product-price text-bold mb-0 ">
+                                                                    Tk. 111,500.00 - Tk. 92,000.00
+                                                                </p>
+                                                                <p class="mb-0">Apple</p>
+                                                            </div>
+                                                        </div>
+                                                        <span class="emi-price text-uppercase white-text px-2 py-1 position-absolute ">emi</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="item">
+                                            <ul class="list-unstyled">
+                                                <li class="product pb-lg-2">
+                                                    <a href="/product/apple-iphone-8-plus">
+                                                        <div class="product-image">
+                                                           
+                                                        </div>
+                                                        <div class="product-info pl-3">
+                                                            <div class="product-meta col-12 px-0">
+                                                                <p class="product-name mt-3 d-block mb-0">iPhone 8 Plus</p>
+                                                                <p class="product-price text-bold mb-0 ">
+                                                                    Tk. 105,000.00
+                                                                </p>
+                                                                <p class="mb-0">Apple</p>
+                                                            </div>
+                                                        </div>
+                                                        <span class="emi-price text-uppercase white-text px-2 py-1 position-absolute ">emi</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="item">
+                                            <ul class="list-unstyled">
+                                                <li class="product pb-lg-2">
+                                                    <a href="/product/galaxy-s9">
+                                                        <div class="product-image">
+                                                   
+                                                        </div>
+                                                        <div class="product-info pl-3">
+                                                            <div class="product-meta col-12 px-0">
+                                                                <p class="product-name mt-3 d-block mb-0">Galaxy S9+</p>
+                                                                <p class="product-price text-bold mb-0 ">
+                                                                    Tk. 105,900.00
+                                                                </p>
+                                                                <p class="mb-0">Samsung</p>
+                                                            </div>
+                                                        </div>
+                                                        <span class="emi-price text-uppercase white-text px-2 py-1 position-absolute ">emi</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="item">
+                                            <ul class="list-unstyled">
+                                                <li class="product pb-lg-2">
+                                                    <a href="/product/apple-iphone-x-64gb">
+                                                        <div class="product-image">
+                                                
+                                                        </div>
+                                                        <div class="product-info pl-3">
+                                                            <div class="product-meta col-12 px-0">
+                                                                <p class="product-name mt-3 d-block mb-0">Apple iPhone X</p>
+                                                                <p class="product-price text-bold mb-0 ">
+                                                                    Tk. 130,990.00 - Tk. 150,500.00
+                                                                </p>
+                                                                <p class="mb-0">Apple</p>
+                                                            </div>
+                                                        </div>
+                                                        <span class="emi-price text-uppercase white-text px-2 py-1 position-absolute ">emi</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show" id="new-arrival-tab-8" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <p class="text-right mb-0 mr-4 base-text text-m"><a class="text-right base-text" href="/new-arrival-product?cat_id=8">See all <i
+                                    class="icon-right-arrow light-grey-btn-text"></i></a></p>
+                                <div id="new-arrival-product-item-container">
+                                    <div class="col-md-12">
+                                        <div class="loading-bar text-center " style="display: none;"><img class="mx-auto d-block"
+                                            src="/img/loading.c98ea3eb.svg">
+                                        </div>
+                                    </div>
+                                    <div id="" class="owl-carousel home-products-slider owl-theme">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid px-0 mb-5">
+                <div class="col px-0 position-relative">
+                    
+                    <a href="/emi-products" class="btn btn-gng-fill position-absolute emi-btn-position p-2 text-m text-uppercase px-lg-5 py-lg-3">SEE ALL EMI PRODUCTS</a>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row mb-5 position-relative">
+                    <div class="col-lg-6 col-sm-6  mb-5">
+                        
+                        <a href="http://gadgetngear.com/" class="btn btn-gng-fill position-absolute btn-position-bottom px-lg-5 py-lg-3 px-2 text-uppercase text-m">view details</a>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 position-relative mb-5">
+                        
+                        <div class="play-button position-absolute" data-toggle="modal" data-target="#brandVideoModal"><i class="icon-play text-xxl white-text d-block"></i></div>
+                        <a href="https://www.youtube.com/embed/6UX8KKceJGk" class="btn btn-gng-fill position-absolute btn-position-bottom px-lg-5 py-lg-3 px-2 text-uppercase text-m">view details</a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="brandVideoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Nokia</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="embed-responsive embed-responsive-16by9" id="yPlayer">
+                                            <iframe id="video" width="560" height="315" src="" frameborder="0" allowfullscreen data-src="https://www.youtube.com/embed/6UX8KKceJGk"></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h3 class="text-uppercase mb-0 mb-lg-5 text-center">shop by brands</h3>
+                    <div class="brand-logos">
+                        <div class="row">
+                            <div class="col">
+                                <div class="border border-left-0 border-right-0  py-3">
+                                    <div id="brandSlider" class="owl-carousel brand-logo-slider owl-theme ">
+                                        <ul class="item list-unstyled">
+                                            <li class="product">
+                                                <div class="product-image">
+                                                    <a href="/brand/apple">
+                                             
+                                                    </a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid px-0">
+            <div class="col px-0">
+               
+                <a  href="http://gadgetngear.com/" class="btn btn-gng-fill position-absolute btn-position-bottom px-lg-5 py-lg-3 px-2 text-uppercase text-m">shop now</a>
+            </div>
+        </div>
+        </div>
+        <footer>
+            <div class="container-fluid bg-gng mb-5">
+                <div class="container py-3">
+                    <div class="row">
+                        <div class="col-lg-1 col-sm-1 d-block d-sm-none d-lg-none mb-3 mb-lg-0">
+                           
+                        </div>
+                        <div class="col-lg-3 col-sm-3 mb-1 mb-lg-0 px-0 px-lg-2">
+                            <p class="white-text text-m mb-0 mt-1 ml-0">Get the Latest Deals & More</p>
+                        </div>
+                        <div class="col-lg-4 col-sm-4 mb-3 mb-lg-0 px-0 px-lg-2">
+                            <div class="input-group box-type">
+                                <input type="text" id="emailSubscribeField" name="emailSubscribeField" class="form-control" placeholder="Enter email address">
+                                <div class="input-group-prepend">
+                                    <button id="emailSubscribeBtn" class="btn btn-outline-success my-sm-0 border-0 bg-muted text-uppercase white-text text-sem-m" type="submit">Signup </button>
+                                     
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <div id="emailSubscriptionResponse"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-sm-1 d-none d-sm-block d-lg-block"> </div>
+                        <div class="col-lg-4 col-sm-4 mb-3 mb-lg-0 px-0 px-lg-2">
+                            <p class="white-text text-m mb-0 mt-0 mt-lg-2">Customer Service <b>09678-666777</b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container mb-5 ">
+                <div class="row pb-5 border border-top-0 border-left-0 border-right-0">
+                    <div class="col-lg-4 col-sm-6 mb-3">
+                        <h4 class="text-bold">About Us</h4>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link black-text pl-0" href="/company-profile"> Company Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link black-text pl-0" href="/contact-us">Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link black-text pl-0" href="/faq">FAQ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link black-text pl-0" href="/career">Career</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link black-text pl-0" href="/map">MAP</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-3">
+                        <h4 class="text-bold">Customer Service</h4>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link   black-text pl-0" href="/return-policy">Return Policy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link black-text pl-0" href="/privacy-policy">Privacy Policy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link black-text pl-0" href="/feedback">Feedback</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link black-text pl-0" href="/how-to-shop">How to Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link black-text pl-0" href="/shop-pick-up"> Shop Pick up</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link black-text pl-0" href="/term-and-condition">Term & condition </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-3">
+                        <h3 class="text-bold">Payment & Shipping</h3>
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link   black-text pl-0" href="/payment-method">Payment Method</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link black-text pl-0" href="/delivery">Delivery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link black-text pl-0" href="/warrenty">Warranty</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-lg-6  mb-3 mb-lg-0 ">
+                        <div class="form-inline">
+                            <p class="text-m mb-0 pb-lg-0 mr-3">Follow us on</p>
+                            <ul class="nav flex-row">
+                                <li  class="pr-2"><a href="https://www.facebook.com/GadgetnGear/"><i class="icon-facebook text-m white-text social-logo bg-facebook text-center d-inline-block"></i></a></li>
+                                <li  class="pr-2"><a href="#"><i class="icon-twitter text-m white-text social-logo bg-twitter text-center d-inline-block"></i></a></li>
+                                <li  class="pr-2"><a href="#"><i class="icon-gplus text-m white-text social-logo bg-google text-center d-inline-block"></i></a></li>
+                                <li  class="pr-2"><a href="#"><i class="icon-instagram text-m white-text social-logo bg-instagram text-center d-inline-block"></i></a></li>
+                                <li  class="pr-2"><a href="#"><i class="icon-pinterest text-m white-text social-logo bg-pinterest text-center d-inline-block"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb-3 mb-lg-0">
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="mt-0 mt-lg-4">Prices and offers are subject to change. &copy; 2018 Gadget & Gear. All rights reserved. Gadget & Gear, the Gadget & Gear logo, the tag design are trademarks of Gadget & Gear</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Modal -->
+        <div class="modal fade" id="authModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content bg-light-grey">
+                    <div class="modal-body pb-0 pt-0">
+                      
+                        <button type="button" class="close text-l text-lh-0 mt-2 mr-4 close-btn" data-dismiss="modal" aria-label="Close">
+                        <i class="icon-cancel text-sem-l"></i>
+                        </button>
+                        <div id="UserSuccessMessage">
+                        </div>
+                        <div id="userLogin" >
+                            <input type="hidden" name="signin-error" id="signin-error" value="">
+                            <div class="row mb-5">
+                                <div class="col-lg-6 mx-auto">
+                                    <h4 class="text-bold text-center mb-2 text-m">Sign In</h4>
+                                    <div class="alert-danger signin-warning"></div>
+                                    <form class="mb-4 reset-form-class" id="logIn" method="post">
+                                        <input type="hidden" name="_token" value="jUpBa5o1sUmvuMN9Hs0FRu8xwB1jYeBxSdT9uEHE">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="email" name="email" placeholder="Email Address" novalidate="novalidate">
+                                            <div class="invalid-feedback text-first-cap"></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control"  name="password" id="password" placeholder="Password">
+                                            <div class="invalid-feedback text-first-cap"></div>
+                                        </div>
+                                        <div class="form-check mb-3">
+                                            <a href="#" id="forgot-password" class="base-text float-right mb-3"><u>Forgot Password</u></a>
+                                        </div>
+                                        <button type="submit" id="sign-in" class="btn btn-gng-fill d-block w-100 py-2 text-m font-weight-bold">Sign in</button>
+                                    </form>
+                                    <div class="sign-with text-uppercase mb-3"> Or Sign in with </div>
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <a href="/login/facebook" class="white-text d-block mx-auto text-center rounded-circle box-round h2 bg-facebook">
+                                            <i class="icon-facebook text-lh-l text-m"></i>
+                                            </a>
+                                            <p class="text-center text-s mb-0 text-uppercase font-weight-light ">facebook</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="/login/google" class="white-text d-block mx-auto text-center rounded-circle box-round h2 bg-google">
+                                            <i class="icon-gplus text-lh-l text-m"></i>
+                                            </a>
+                                            <p class="text-center text-s mb-0 text-uppercase font-weight-light ">google+</p>
+                                        </div>
+                                        <input type="hidden" id="error-social" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row bg-base py-3">
+                                <div class="col">
+                                    <p class="text-center white-text text-sem-m mb-0">Not a member yet? <a href="#" class="button-text-text" id="userSingupBtn">Sign up now!</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="userSignup">
+                            <input type="hidden" name="signup-error" id="signup-error" value="">
+                            <div class="col-lg-6 mx-auto">
+                                <h4 class="text-bold text-center mb-2 text-m">Sign Up - Create My Account</h4>
+                                <div class="alert-danger signup-warning"></div>
+                                <form class="mb-5 reset-form-class" id="signUp" method="post" autocomplete="off">
+                                    <input type="hidden" name="_token" value="jUpBa5o1sUmvuMN9Hs0FRu8xwB1jYeBxSdT9uEHE">
+                                    <div class="form-group">
+                                        <label for="full_name mb-0 d-block"> <strong class="text-s">Name</strong> <span class="button-fill-text">*</span></label>
+                                        <input type="text" name="full_name" class="form-control" id="full_name" placeholder="Enter your full name">
+                                        <div class="invalid-feedback text-first-cap"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email mb-0"><strong class="text-s">Email</strong><span class="button-fill-text">*</span></label>
+                                        <input type="text" class="form-control" name="email" id="signup-email" aria-describedby="emailHelp" placeholder="Enter email">
+                                        <div class="invalid-feedback text-first-cap"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password mb-0"><strong class="text-s">Password</strong></label>
+                                        <input type="password" name="password" class="form-control" id="signup-password" placeholder="Password">
+                                        <div class="invalid-feedback text-first-cap"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Confirmpassword mb-0"><strong class="text-s">Confirm Password </strong></label>
+                                        <input type="password" name="confirm_password" class="form-control" id="confirmpassword" placeholder="Password">
+                                        <div class="invalid-feedback text-first-cap password-match-error"></div>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                        <input type="checkbox" name="terms_condition" id="terms_condition" value="on" class="form-control form-check-input custom-checkbox  align-middle">
+                                        <span class="d-block text-r ml-3 text-lh-m">I agree to the  <a target="_blank" href="http://gadgetngear.com/term-and-condition" class="base-text"><u>Terms & Conditions.</u></a></span>
+                                        </label>
+                                        <div class="invalid-feedback text-first-cap"></div>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <label class="form-check-label">
+                                        <input type="checkbox" name="subscribe" id="subscribe" class="form-check-input custom-checkbox  align-middle">
+                                        <span class="d-block text-r ml-3 text-lh-m">Subscribe to our Newsletter</span></label>
+                                        <div class="invalid-feedback text-first-cap"></div>
+                                    </div>
+                                    <button type="submit" id="sign-up" class="btn btn-gng-fill d-block w-100 py-2 text-m font-weight-bold">Create My Account</button>
+                                    <img class="d-none loading-img" style="height: 33px" src="/img/loading.c98ea3eb.svg">
+                                </form>
+                            </div>
+                            <div class="row bg-base py-3">
+                                <div class="col">
+                                    <p class="text-center white-text text-sem-m mb-0">Already a member? <a href="#" class="button-text-text" id="backToLoginIn"> Sign In</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="userForgotPassword" >
+                            <input type="hidden" name="signup-error" id="signup-error" value="">
+                            <div class="col-lg-6 mx-auto">
+                                <h4 class="text-bold text-center mb-3">Reset Your Password</h4>
+                                <form class="reset-form-class" id="forgotPassRequest"  autocomplete="off" novalidate>
+                                    <div class="alert-danger request-opt-error"></div>
+                                    <div class="form-group mb-4">
+                                        <input type="email" name="email" class="form-control" id="forgot-password-email" placeholder="Enter your email address">
+                                        <div class="invalid-feedback text-first-cap"></div>
+                                    </div>
+                                    <button type="submit" id="forgot-password-request" class="btn btn-gng-fill d-block w-100 py-2 text-m font-weight-bold mb-5">Request</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="userForgotPasswordSubmit" >
+                            <input type="hidden" name="signup-error" id="signup-error" value="">
+                            <div class="col-lg-6 mx-auto">
+                                <h4 class="text-bold text-center mb-5">Reset Your Password</h4>
+                                <form class="mb-5 reset-form-class" id="forgotPass"  autocomplete="off">
+                                    <div class="alert-warning forgot-password-warning-final"></div>
+                                    <div class="form-group">
+                                        <label for="forgot-password-email mb-0 d-block"> <strong>Email</strong> <span class="button-fill-text">*</span></label>
+                                        <input type="email" name="email" class="form-control" id="forgot-password-email-final" readonly placeholder="Enter your register email address">
+                                        <div class="invalid-feedback text-first-cap"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="forgot-password-otp mb-0 d-block"> <strong>OTP</strong> <span class="button-fill-text">*</span></label>
+                                        <input type="text" name="otp" class="form-control" id="forgot-password-otp" placeholder="Enter your received OTP">
+                                        <div class="invalid-feedback text-first-cap"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="forgot-password-password mb-0 d-block"> <strong>New Password</strong> <span class="button-fill-text">*</span></label>
+                                        <input type="password" name="password" class="form-control" id="forgot-password-password" placeholder="New Password">
+                                        <div class="invalid-feedback text-first-cap"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="forgot-password-re-password mb-0 d-block"> <strong>Confirm Password</strong> <span class="button-fill-text">*</span></label>
+                                        <input type="password" name="password_confirmation" class="form-control" id="forgot-password-re-password" placeholder="Confirm Pasword">
+                                        <div class="invalid-feedback text-first-cap"></div>
+                                    </div>
+                                    <button type="submit" id="forgot-password-request-final" class="btn btn-gng-fill d-block w-100 py-2 text-m font-weight-bold">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function(){
+            
+                var top, currentScrollTop = 0,
+                    navbar = $('.navbar-light'),
+                    mobileSearch = $('.mobile-search'), mid, mobileTop = -59;
+            
+                if ($(window).width() < 960) {
+                    $(window).scroll(function () {
+                        var scrollval = $(window).scrollTop();
+                        var navHeight = navbar.height();
+
+                        var mobi = mobileSearch.height();
+                        var scrollval2 = $(window).scrollTop();
+
+                        console.log("+++++", navHeight, mobi);
+                     //   var mobileSearch = mobileSearch.height();
+                        currentScrollTop = scrollval;
+                        mobileTop = scrollval;
+            
+                        if (top < currentScrollTop && scrollval  > navHeight + navHeight) {
+                            navbar.addClass('scrollUp');
+                           // mobileSearch.addClass('scrollUp');
+                           
+                            if(scrollval>= 60){
+                               var i =  mobileSearch.css('top', '0px'); 
+                                console.log("++++", i )
+                            }
+                            $('.page-container').css('margin-top', '170px');
+                        } else if (top > currentScrollTop && !(scrollval <= navHeight)){
+                            navbar.removeClass('scrollUp');
+                         //  mobileSearch.removeClass('scrollUp');
+                            mobileSearch.css('top', '59px');
+                            $('.page-container').css('margin-top', '126px')
+                        }   
+
+                        top = currentScrollTop;            
+                    })
+                }
+            })
+            
+        </script>
+    </body>
+</html>
