@@ -16,77 +16,52 @@
 
 <body>
 
-    <p id="nestaAray">Array</p>
-    <p id="nestChildAray">Array</p>
+    <!-- <p id="nestaAray">Array</p>
+    <p id="nestChildAray">Array</p> -->
     <script>
         var nestedArrayData, i, j, textData, lenghtElement;
         nestedArrayData = ["A", "B", "C", "E", "F", "G", "H"];
 
-        var cars = [{
-            id: 1,
-            model: "abc",
-            color: "red",
-            year: 2015
-        }, {
-            id: 2,
-            model: "kkkk",
-            color: "blude",
-            year: 2000
-        }, {
-            id: 1,
-            model: "aaaa",
-            color: "yellow",
-            year: 2014
-        }, {
-            id: 2,
-            model: "eeee",
-            color: "green",
-            year: 2014
-        }]
 
-        var listItem = [{
+
+
+        var arrayObject = [{
             id: 1,
-            title: 'hello',
+            title: "test",
             parent: 0,
-            children: [{
-                id: 3,
-                title: 'hello',
-                parent: 1,
-                children: [{
-                    id: 4,
-                    title: 'hello',
-                    parent: 3,
-                    children: [{
-                        id: 5,
-                        title: 'hello',
-                        parent: 4
-                    }, {
-                        id: 6,
-                        title: 'hello',
-                        parent: 4
+            child: [{
+                id: 1,
+                title: "child-1",
+                parent: 0,
+                child: [{
+                    id: 2,
+                    title: "child-2",
+                    parent: 1,
+                    child: [{
+                        id: 3,
+                        title: "child-3",
+                        parent: 2,
+                        child: [{
+                            id: 4,
+                            title: "child-4",
+                            parent: 3,
+                            child: []
+                        }]
                     }]
-                }, {
-                    id: 7,
-                    title: 'hello',
-                    parent: 3
                 }]
             }]
         }, {
             id: 2,
-            title: 'hello',
+            title: "test",
             parent: 0,
-            children: [{
-                id: 8,
-                title: 'hello',
-                parent: 2
-            }]
         }]
 
-        for (i = 0; i < cars.length; i++) {
-            console.log(cars[i]);
-            if (cars[i].year < 2018 && cars[i].id == 1) {
-                console.log(cars[i].color + ", " + cars[i].model);
-            }
+
+        for (i = 0; i < arrayObject.length; i++) {
+            console.log(arrayObject[i]);
+            // if (listItem[i].year < 2018 && listItem[i].id == 1) {
+            //     console.log(cars[i].color + ", " + cars[i].model);
+            // }
         }
 
 
@@ -124,19 +99,19 @@
 
 
 
-        lenghtElement = nestedArrayData.length;
+        // lenghtElement = nestedArrayData.length;
 
-        textData = "<ul class='parent'>";
-        for (i = 0; i < lenghtElement; i++) {
-            textData += "<li>" + nestedArrayData[i] + "</li>";
-            for (j = 0; j < nestedArrayData[i]; j++) {
-                textData += "<li>" + nestedArrayData[j] + "</li>";
-            }
-        }
-        textData += "</ul>";
+        // textData = "<ul class='parent'>";
+        // for (i = 0; i < lenghtElement; i++) {
+        //     textData += "<li>" + nestedArrayData[i] + "</li>";
+        //     for (j = 0; j < nestedArrayData[i]; j++) {
+        //         textData += "<li>" + nestedArrayData[j] + "</li>";
+        //     }
+        // }
+        // textData += "</ul>";
 
-        document.getElementById("nestaAray").innerHTML = textData;
-        document.getElementById("nestChildAray").innerHTML = textData;
+        // document.getElementById("nestaAray").innerHTML = textData;
+        // document.getElementById("nestChildAray").innerHTML = textData;
         // lenghtElement = ar.length;
         // textData = "<ul class='parent'>";
         // for (i = 0; i < lenghtElement; i++) {
@@ -150,6 +125,7 @@
         // textData += "</ul>";
 
         // document.getElementById("test").innerHTML = textData;
+        //http://oskarhane.com/create-a-nested-array-recursively-in-javascript/
     </script>
 
 
