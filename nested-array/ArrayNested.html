@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* ul.parent li {
+            float: left;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <p id="nestaAray">Array</p>
+    <p id="nestChildAray">Array</p>
+
+    <script>
+        var nestedArrayData, i, i, textData, lenghtElement;
+        nestedArrayData = ["A", "B", "C", "E", "F", "G", "H"];
+
+
+        var line = [{
+            name = "parent-1",
+            text = "this is test text 1"
+        }, {
+            name = "parent-2",
+            text = "this is test text 2"
+        }, {
+            name = "parent1-3",
+            text = "this is test text 3"
+        }, {
+            name = "parent1-4",
+            text = "this is test text 4"
+        }]
+
+        lenghtElement = nestedArrayData.length;
+
+        textData = "<ul class='parent'>";
+        for (i = 0; i < lenghtElement; i++) {
+            textData += "<li>" + nestedArrayData[i] + "</li>";
+            for (j = 0; j < nestedArrayData[i]; j++) {
+                textData += "<li>" + nestedArrayData[j] + "</li>";
+            }
+        }
+        textData += "</ul>";
+
+        document.getElementById("nestaAray").innerHTML = textData;
+        document.getElementById("nestChildAray").innerHTML = textData;
+    </script>
+
+
+</body>
+
+</html>

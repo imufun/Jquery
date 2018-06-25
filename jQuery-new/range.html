@@ -9,12 +9,7 @@
     <link rel="stylesheet" href="css/jquery-ui.min.css">
 </head>
 <body>
-    
-    <input type="hidden" class=" range-slider" value="23" />
-
-    <div style="margin-top:20px;"></div>
-    <input type="text" name="min" class="minRange" value="" />
-    <input type="text" name="max" class="maxMax" value=""/>
+ 
 
  
 <!-- 
@@ -27,20 +22,22 @@
 <br /><br />
 <label for="txtMaxAge">Maximum</label>
 <input id="txtMaxAge" type="text" />
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+
+
+
+    <script src="js/jquery-3.2.1.min.js" ></script>
     <script  src="js/jquery.range-min.js"></script>
     <script  src="js/jquery-range-slider.min.js"></script>
     
 
     <script>
-   $(document).ready(function () { 
-       var outputSpan = $('#spanOutput'); 
+   $(document).ready(function () {  
        var sliderDiv = $('#slider'); 
        sliderDiv.slider({ 
            range: true, 
            min: 0, 
            max: 10000, 
-           values: [20, 7000],
+           values: [20, 10000],
             slide: function (event, ui) {
               
                   $('#txtMinAge').val(ui.values[0]);

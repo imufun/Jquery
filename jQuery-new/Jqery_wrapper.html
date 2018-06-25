@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="section-one col-md-4">
+                <div>old content</div>
+                <div>old content</div>
+                <div>old content</div>
+                <div>old content</div>
+            </div>
+            <div class="col-md-4">
+                <div class="link-hover">
+                    <a href='#'>link</a>
+                    <a href='#'>link</a>
+                    <a href='#'>link</a>
+                    <a href='#'>link</a>
+                    <a href='#'>link</a>
+                    <a href='#'>link</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="col rep-dom">
+                    <ul class="list-unstyled">
+                        <li class='remove'>name</li>
+                        <li>name</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="list-unstyled" id="cloneID"></ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="tests">
+                    <li>dd</li>
+                    <li>dd</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <div id="filterElement">
+                    <ul>
+                        <li>hahah</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            var i = $('.section-one div').hide().text('new content').addClass('update').show();
+            console.log(i);
+
+            // alert(' page content ' + $('.link-hover > a').length + '<a>')
+
+            $('.rep-dom li.remove').replaceWith('<li>remove</li>');
+
+            // $('.list-unstyled').clone().appendTo('body');
+
+            $('ul.list-unstyled').on('click', function() {
+                $(this).parent().clone(true).find('li').appendTo('#cloneID').end().end().remove();
+            })
+
+            var hideContent = $('.tests').hide();
+            if ($('.tests').is(hideContent)) {
+                console.log("hahahah")
+                alert("haha")
+            }
+
+            $("#filterElement").filter(function() {
+                var width = $(this).width();
+                console.log(width);
+                return width > 100 && width < 200;
+            })
+        })
+    </script>
+</body>
+
+</html>
