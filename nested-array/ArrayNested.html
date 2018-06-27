@@ -27,33 +27,52 @@
 
         var arrayObject = [{
             id: 1,
-            title: "test",
-            parent: 0,
+            title: "First",
+            hashChild: true,
             child: [{
-                id: 1,
+                childId: 1,
                 title: "child-1",
-                parent: 0,
+                hashChild: 0,
                 child: [{
-                    id: 2,
+                    childId: 2,
                     title: "child-2",
-                    parent: 1,
+                    hashChild: 1,
                     child: [{
-                        id: 3,
+                        childId: 3,
                         title: "child-3",
-                        parent: 2,
+                        hashChild: 2,
                         child: [{
-                            id: 4,
+                            childId: 4,
                             title: "child-4",
-                            parent: 3,
-                            child: []
+                            hashChild: 3
                         }]
                     }]
                 }]
             }]
         }, {
             id: 2,
-            title: "test",
+            title: "Scound",
             parent: 0,
+            child: [{
+                childId: 1,
+                title: "child-1",
+                hashChild: 0,
+                child: [{
+                    childId: 2,
+                    title: "child-2",
+                    hashChild: 1,
+                    child: [{
+                        childId: 3,
+                        title: "child-3",
+                        hashChild: 2,
+                        child: [{
+                            childId: 4,
+                            title: "child-4",
+                            hashChild: 3
+                        }]
+                    }]
+                }]
+            }]
         }]
 
 
